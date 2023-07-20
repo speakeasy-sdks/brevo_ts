@@ -1,4 +1,9 @@
 configVersion: 1.0.0
+management:
+  docChecksum: fd6551c04044961cce38d49d9c1dd06d
+  docVersion: 3.0.0
+  speakeasyVersion: 1.62.1
+  generationVersion: 2.70.2
 generation:
   comments:
     disableComments: false
@@ -8,7 +13,7 @@ generation:
   singleTagPerOp: false
   tagNamespacingDisabled: false
 typescript:
-  version: 0.0.1
+  version: 1.0.0
   author: test
   maxMethodParams: 0
   packageName: BREVO
