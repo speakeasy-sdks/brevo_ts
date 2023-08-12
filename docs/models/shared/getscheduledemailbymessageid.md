@@ -1,0 +1,10 @@
+# GetScheduledEmailByMessageId
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `createdAt`                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)   | :heavy_check_mark:                                                                              | Datetime on which the email was scheduled                                                       |
+| `scheduledAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)   | :heavy_check_mark:                                                                              | Datetime for which the email was scheduled                                                      |
+| `status`                                                                                        | [GetScheduledEmailByMessageIdStatus](../../models/shared/getscheduledemailbymessageidstatus.md) | :heavy_check_mark:                                                                              | Current status of the scheduled email                                                           |

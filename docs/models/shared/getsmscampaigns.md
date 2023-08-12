@@ -1,0 +1,11 @@
+# GetSmsCampaigns
+
+SMS campaigns informations
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `campaigns`                                                                   | [GetSmsCampaignsCampaigns](../../models/shared/getsmscampaignscampaigns.md)[] | :heavy_minus_sign:                                                            | N/A                                                                           |                                                                               |
+| `count`                                                                       | *number*                                                                      | :heavy_minus_sign:                                                            | Number of SMS campaigns retrieved                                             | 12                                                                            |
