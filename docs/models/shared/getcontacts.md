@@ -1,0 +1,11 @@
+# GetContacts
+
+All contacts listed
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `contacts`                                                          | [GetContactsContacts](../../models/shared/getcontactscontacts.md)[] | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
+| `count`                                                             | *number*                                                            | :heavy_check_mark:                                                  | Number of contacts                                                  | 17655                                                               |
