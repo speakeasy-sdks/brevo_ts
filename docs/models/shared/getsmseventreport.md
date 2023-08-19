@@ -1,0 +1,10 @@
+# GetSmsEventReport
+
+Sms events report informations
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `events`                                                                    | [GetSmsEventReportEvents](../../models/shared/getsmseventreportevents.md)[] | :heavy_minus_sign:                                                          | N/A                                                                         |
