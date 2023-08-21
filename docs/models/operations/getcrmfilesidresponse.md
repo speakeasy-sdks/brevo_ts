@@ -1,0 +1,12 @@
+# GetCrmFilesIdResponse
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `contentType`                                                              | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `fileDownloadableLink`                                                     | [shared.FileDownloadableLink](../../models/shared/filedownloadablelink.md) | :heavy_minus_sign:                                                         | Returns downloadable file link. Valid for next 5 minutes only.             |
+| `statusCode`                                                               | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `rawResponse`                                                              | [AxiosResponse>](https://axios-http.com/docs/res_schema)                   | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `errorModel`                                                               | [shared.ErrorModel](../../models/shared/errormodel.md)                     | :heavy_minus_sign:                                                         | Returned when invalid data posted                                          |
