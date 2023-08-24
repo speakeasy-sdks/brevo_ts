@@ -1,0 +1,12 @@
+# GetAbTestCampaignResultResponse
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `contentType`                                                              | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `statusCode`                                                               | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `rawResponse`                                                              | [AxiosResponse>](https://axios-http.com/docs/res_schema)                   | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `abTestCampaignResult`                                                     | [shared.AbTestCampaignResult](../../models/shared/abtestcampaignresult.md) | :heavy_minus_sign:                                                         | A/B test email campaign Result                                             |
+| `errorModel`                                                               | [shared.ErrorModel](../../models/shared/errormodel.md)                     | :heavy_minus_sign:                                                         | bad request                                                                |
