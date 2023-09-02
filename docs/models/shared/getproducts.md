@@ -1,0 +1,11 @@
+# GetProducts
+
+All products listed
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `count`                                                             | *number*                                                            | :heavy_check_mark:                                                  | Number of products                                                  | 17655                                                               |
+| `products`                                                          | [GetProductsProducts](../../models/shared/getproductsproducts.md)[] | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
