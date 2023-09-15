@@ -1,0 +1,1296 @@
+# contacts
+
+### Available Operations
+
+* [addContactToList](#addcontacttolist) - Add existing contacts to a list
+* [createAttribute](#createattribute) - Create contact attribute
+* [createContact](#createcontact) - Create a contact
+* [createDoiContact](#createdoicontact) - Create Contact via DOI (Double-Opt-In) Flow
+* [createFolder](#createfolder) - Create a folder
+* [createList](#createlist) - Create a list
+* [deleteAttribute](#deleteattribute) - Delete an attribute
+* [deleteContact](#deletecontact) - Delete a contact
+* [deleteFolder](#deletefolder) - Delete a folder (and all its lists)
+* [deleteList](#deletelist) - Delete a list
+* [getAttributes](#getattributes) - List all attributes
+* [getContactInfo](#getcontactinfo) - Get a contact's details
+* [getContactStats](#getcontactstats) - Get email campaigns' statistics for a contact
+* [getContacts](#getcontacts) - Get all the contacts
+* [getContactsFromList](#getcontactsfromlist) - Get contacts in a list
+* [getFolder](#getfolder) - Returns a folder's details
+* [getFolderLists](#getfolderlists) - Get lists in a folder
+* [getFolders](#getfolders) - Get all folders
+* [getList](#getlist) - Get a list's details
+* [getLists](#getlists) - Get all the lists
+* [getSegments](#getsegments) - Get all the segments
+* [importContacts](#importcontacts) - Import contacts
+* [removeContactFromList](#removecontactfromlist) - Delete a contact from a list
+* [requestContactExport](#requestcontactexport) - Export contacts
+* [updateAttribute](#updateattribute) - Update contact attribute
+* [updateBatchContacts](#updatebatchcontacts) - Update multiple contacts
+* [updateContact](#updatecontact) - Update a contact
+* [updateFolder](#updatefolder) - Update a folder
+* [updateList](#updatelist) - Update a list
+
+## addContactToList
+
+Add existing contacts to a list
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { AddContactToListResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.addContactToList({
+  requestBody: {
+    ids: [
+      10,
+    ],
+  },
+  listId: 976460,
+}).then((res: AddContactToListResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.AddContactToListRequest](../../models/operations/addcontacttolistrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+
+
+### Response
+
+**Promise<[operations.AddContactToListResponse](../../models/operations/addcontacttolistresponse.md)>**
+
+
+## createAttribute
+
+Create contact attribute
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { CreateAttributeAttributeCategory, CreateAttributeResponse } from "BREVO/dist/sdk/models/operations";
+import { CreateAttributeType } from "BREVO/dist/sdk/models/shared";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.createAttribute({
+  attributeCategory: CreateAttributeAttributeCategory.Global,
+  attributeName: "nihil",
+  createAttribute: {
+    enumeration: [
+      {
+        label: "Women",
+        value: 1,
+      },
+    ],
+    isRecurring: true,
+    type: CreateAttributeType.Text,
+    value: "COUNT[BLACKLISTED,BLACKLISTED,<,NOW()]",
+  },
+}).then((res: CreateAttributeResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateAttributeRequest](../../models/operations/createattributerequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.CreateAttributeResponse](../../models/operations/createattributeresponse.md)>**
+
+
+## createContact
+
+Create a contact
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { CreateContactResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.createContact({
+  attributes: {
+    "praesentium": "voluptatibus",
+  },
+  email: "elly@example.com",
+  emailBlacklisted: false,
+  extId: "externalId",
+  listIds: [
+    36,
+  ],
+  smsBlacklisted: false,
+  smtpBlacklistSender: [
+    "Lelah.Klein3@gmail.com",
+  ],
+  updateEnabled: false,
+}).then((res: CreateContactResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [shared.CreateContact](../../models/shared/createcontact.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+
+
+### Response
+
+**Promise<[operations.CreateContactResponse](../../models/operations/createcontactresponse.md)>**
+
+
+## createDoiContact
+
+Create Contact via DOI (Double-Opt-In) Flow
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { CreateDoiContactResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.createDoiContact({
+  attributes: {
+    "reprehenderit": "ut",
+  },
+  email: "elly@example.com",
+  excludeListIds: [
+    36,
+  ],
+  includeListIds: [
+    36,
+  ],
+  redirectionUrl: "http://requestb.in/173lyyx1",
+  templateId: 2,
+}).then((res: CreateDoiContactResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `request`                                                          | [shared.CreateDoiContact](../../models/shared/createdoicontact.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
+
+
+### Response
+
+**Promise<[operations.CreateDoiContactResponse](../../models/operations/createdoicontactresponse.md)>**
+
+
+## createFolder
+
+Create a folder
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { CreateFolderResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.createFolder({
+  name: "Wordpress Contacts",
+}).then((res: CreateFolderResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [shared.CreateUpdateFolder](../../models/shared/createupdatefolder.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+
+
+### Response
+
+**Promise<[operations.CreateFolderResponse](../../models/operations/createfolderresponse.md)>**
+
+
+## createList
+
+Create a list
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { CreateListResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.createList({
+  folderId: 2,
+  name: "Magento Customer - ES",
+}).then((res: CreateListResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [shared.CreateList](../../models/shared/createlist.md)       | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+
+
+### Response
+
+**Promise<[operations.CreateListResponse](../../models/operations/createlistresponse.md)>**
+
+
+## deleteAttribute
+
+Delete an attribute
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { DeleteAttributeAttributeCategory, DeleteAttributeResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.deleteAttribute({
+  attributeCategory: DeleteAttributeAttributeCategory.Global,
+  attributeName: "dicta",
+}).then((res: DeleteAttributeResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteAttributeRequest](../../models/operations/deleteattributerequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.DeleteAttributeResponse](../../models/operations/deleteattributeresponse.md)>**
+
+
+## deleteContact
+
+Delete a contact
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { DeleteContactResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.deleteContact({
+  identifier: "dolore",
+}).then((res: DeleteContactResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.DeleteContactRequest](../../models/operations/deletecontactrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+
+
+### Response
+
+**Promise<[operations.DeleteContactResponse](../../models/operations/deletecontactresponse.md)>**
+
+
+## deleteFolder
+
+Delete a folder (and all its lists)
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { DeleteFolderResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.deleteFolder({
+  folderId: 480894,
+}).then((res: DeleteFolderResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.DeleteFolderRequest](../../models/operations/deletefolderrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+
+
+### Response
+
+**Promise<[operations.DeleteFolderResponse](../../models/operations/deletefolderresponse.md)>**
+
+
+## deleteList
+
+Delete a list
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { DeleteListResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.deleteList({
+  listId: 118727,
+}).then((res: DeleteListResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.DeleteListRequest](../../models/operations/deletelistrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+
+
+### Response
+
+**Promise<[operations.DeleteListResponse](../../models/operations/deletelistresponse.md)>**
+
+
+## getAttributes
+
+List all attributes
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetAttributesResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getAttributes().then((res: GetAttributesResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+
+
+### Response
+
+**Promise<[operations.GetAttributesResponse](../../models/operations/getattributesresponse.md)>**
+
+
+## getContactInfo
+
+Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats ``https://developers.brevo.com/reference/contacts-7#getcontactstats`` endpoint with the appropriate date ranges.
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetContactInfoResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getContactInfo({
+  endDate: "harum",
+  identifier: "accusamus",
+  startDate: "commodi",
+}).then((res: GetContactInfoResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetContactInfoRequest](../../models/operations/getcontactinforequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+
+
+### Response
+
+**Promise<[operations.GetContactInfoResponse](../../models/operations/getcontactinforesponse.md)>**
+
+
+## getContactStats
+
+Get email campaigns' statistics for a contact
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetContactStatsResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getContactStats({
+  endDate: "repudiandae",
+  identifier: "ipsum",
+  startDate: "quidem",
+}).then((res: GetContactStatsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetContactStatsRequest](../../models/operations/getcontactstatsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.GetContactStatsResponse](../../models/operations/getcontactstatsresponse.md)>**
+
+
+## getContacts
+
+Get all the contacts
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetContactsResponse, GetContactsSort } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getContacts({
+  createdSince: "molestias",
+  limit: 566602,
+  modifiedSince: "pariatur",
+  offset: 265389,
+  sort: GetContactsSort.Desc,
+}).then((res: GetContactsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetContactsRequest](../../models/operations/getcontactsrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+
+
+### Response
+
+**Promise<[operations.GetContactsResponse](../../models/operations/getcontactsresponse.md)>**
+
+
+## getContactsFromList
+
+Get contacts in a list
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetContactsFromListResponse, GetContactsFromListSort } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getContactsFromList({
+  limit: 523248,
+  listId: 916723,
+  modifiedSince: "quasi",
+  offset: 921158,
+  sort: GetContactsFromListSort.Desc,
+}).then((res: GetContactsFromListResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.GetContactsFromListRequest](../../models/operations/getcontactsfromlistrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+
+
+### Response
+
+**Promise<[operations.GetContactsFromListResponse](../../models/operations/getcontactsfromlistresponse.md)>**
+
+
+## getFolder
+
+Returns a folder's details
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetFolderResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getFolder({
+  folderId: 83112,
+}).then((res: GetFolderResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.GetFolderRequest](../../models/operations/getfolderrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+
+
+### Response
+
+**Promise<[operations.GetFolderResponse](../../models/operations/getfolderresponse.md)>**
+
+
+## getFolderLists
+
+Get lists in a folder
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetFolderListsResponse, GetFolderListsSort } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getFolderLists({
+  folderId: 929297,
+  limit: 277718,
+  offset: 318569,
+  sort: GetFolderListsSort.Asc,
+}).then((res: GetFolderListsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetFolderListsRequest](../../models/operations/getfolderlistsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+
+
+### Response
+
+**Promise<[operations.GetFolderListsResponse](../../models/operations/getfolderlistsresponse.md)>**
+
+
+## getFolders
+
+Get all folders
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetFoldersResponse, GetFoldersSort } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getFolders({
+  limit: 667411,
+  offset: 842342,
+  sort: GetFoldersSort.Asc,
+}).then((res: GetFoldersResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.GetFoldersRequest](../../models/operations/getfoldersrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+
+
+### Response
+
+**Promise<[operations.GetFoldersResponse](../../models/operations/getfoldersresponse.md)>**
+
+
+## getList
+
+Get a list's details
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetListResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getList({
+  listId: 647174,
+}).then((res: GetListResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [operations.GetListRequest](../../models/operations/getlistrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+
+
+### Response
+
+**Promise<[operations.GetListResponse](../../models/operations/getlistresponse.md)>**
+
+
+## getLists
+
+Get all the lists
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetListsResponse, GetListsSort } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getLists({
+  limit: 716327,
+  offset: 841386,
+  sort: GetListsSort.Asc,
+}).then((res: GetListsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [operations.GetListsRequest](../../models/operations/getlistsrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+
+
+### Response
+
+**Promise<[operations.GetListsResponse](../../models/operations/getlistsresponse.md)>**
+
+
+## getSegments
+
+Get all the segments
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetSegmentsResponse, GetSegmentsSort } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.getSegments({
+  limit: 264730,
+  offset: 183191,
+  sort: GetSegmentsSort.Asc,
+}).then((res: GetSegmentsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetSegmentsRequest](../../models/operations/getsegmentsrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+
+
+### Response
+
+**Promise<[operations.GetSegmentsResponse](../../models/operations/getsegmentsresponse.md)>**
+
+
+## importContacts
+
+It returns the background process ID which on completion calls the notify URL that you have set in the input.
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { ImportContactsResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.importContacts({
+  emailBlacklist: false,
+  emptyContactsAttributes: true,
+  fileBody: "NAME;SURNAME;EMAIL
+Smith;John;john.smith@example.com
+Roger;Ellie;ellie36@example.com",
+  fileUrl: "https://importfile.domain.com",
+  jsonBody: [
+    {
+      attributes: {
+        "cupiditate": "quos",
+      },
+      email: "Casimir.Simonis@gmail.com",
+    },
+  ],
+  listIds: [
+    76,
+  ],
+  newList: {
+    folderId: 2,
+    listName: "ContactImport - 2017-05",
+  },
+  notifyUrl: "http://requestb.in/173lyyx1",
+  smsBlacklist: false,
+  updateExistingContacts: true,
+}).then((res: ImportContactsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [shared.RequestContactImport](../../models/shared/requestcontactimport.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+
+
+### Response
+
+**Promise<[operations.ImportContactsResponse](../../models/operations/importcontactsresponse.md)>**
+
+
+## removeContactFromList
+
+Delete a contact from a list
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { RemoveContactFromListResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.removeContactFromList({
+  requestBody: {
+    emails: [
+      "john.smith@contact.com",
+    ],
+  },
+  listId: 677817,
+}).then((res: RemoveContactFromListResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.RemoveContactFromListRequest](../../models/operations/removecontactfromlistrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+
+
+### Response
+
+**Promise<[operations.RemoveContactFromListResponse](../../models/operations/removecontactfromlistresponse.md)>**
+
+
+## requestContactExport
+
+It returns the background process ID which on completion calls the notify URL that you have set in the input. File will be available in csv.
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { RequestContactExportResponse } from "BREVO/dist/sdk/models/operations";
+import {
+  RequestContactExportCustomContactFilterActionForContacts,
+  RequestContactExportCustomContactFilterActionForEmailCampaigns,
+  RequestContactExportCustomContactFilterActionForSmsCampaigns,
+} from "BREVO/dist/sdk/models/shared";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.requestContactExport({
+  customContactFilter: {
+    actionForContacts: RequestContactExportCustomContactFilterActionForContacts.Unsubscribed,
+    actionForEmailCampaigns: RequestContactExportCustomContactFilterActionForEmailCampaigns.NonOpeners,
+    actionForSmsCampaigns: RequestContactExportCustomContactFilterActionForSmsCampaigns.Unsubscribed,
+    emailCampaignId: 12,
+    listId: 2,
+    smsCampaignId: 12,
+  },
+  exportAttributes: [
+    "NAME",
+  ],
+  notifyUrl: "http://requestb.in/173lyyx1",
+}).then((res: RequestContactExportResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [shared.RequestContactExport](../../models/shared/requestcontactexport.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+
+
+### Response
+
+**Promise<[operations.RequestContactExportResponse](../../models/operations/requestcontactexportresponse.md)>**
+
+
+## updateAttribute
+
+Update contact attribute
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { UpdateAttributeAttributeCategory, UpdateAttributeResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.updateAttribute({
+  attributeCategory: UpdateAttributeAttributeCategory.Global,
+  attributeName: "labore",
+  updateAttribute: {
+    enumeration: [
+      {
+        label: "Men",
+        value: 1,
+      },
+    ],
+    value: "COUNT[BLACKLISTED,BLACKLISTED,<,NOW()]",
+  },
+}).then((res: UpdateAttributeResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateAttributeRequest](../../models/operations/updateattributerequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.UpdateAttributeResponse](../../models/operations/updateattributeresponse.md)>**
+
+
+## updateBatchContacts
+
+Update multiple contacts
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { UpdateBatchContactsResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.updateBatchContacts({
+  contacts: [
+    {
+      attributes: {
+        "delectus": "eum",
+      },
+      email: "elly@example.com",
+      emailBlacklisted: false,
+      extId: "UpdateExternalId",
+      id: 31,
+      listIds: [
+        65,
+      ],
+      sms: "+91xxxxxxxxxx",
+      smsBlacklisted: true,
+      smtpBlacklistSender: [
+        "Nigel_Mayer@gmail.com",
+      ],
+      unlinkListIds: [
+        36,
+      ],
+    },
+  ],
+}).then((res: UpdateBatchContactsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [shared.UpdateBatchContacts](../../models/shared/updatebatchcontacts.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+
+
+### Response
+
+**Promise<[operations.UpdateBatchContactsResponse](../../models/operations/updatebatchcontactsresponse.md)>**
+
+
+## updateContact
+
+Update a contact
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { UpdateContactResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.updateContact({
+  identifier: 572252,
+  updateContact: {
+    attributes: {
+      "officia": "dolor",
+    },
+    emailBlacklisted: false,
+    extId: "updateExternalId",
+    listIds: [
+      65,
+    ],
+    smsBlacklisted: true,
+    smtpBlacklistSender: [
+      "Veda.Parisian@hotmail.com",
+    ],
+    unlinkListIds: [
+      36,
+    ],
+  },
+}).then((res: UpdateContactResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.UpdateContactRequest](../../models/operations/updatecontactrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+
+
+### Response
+
+**Promise<[operations.UpdateContactResponse](../../models/operations/updatecontactresponse.md)>**
+
+
+## updateFolder
+
+Update a folder
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { UpdateFolderResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.updateFolder({
+  createUpdateFolder: {
+    name: "Wordpress Contacts",
+  },
+  folderId: 846409,
+}).then((res: UpdateFolderResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.UpdateFolderRequest](../../models/operations/updatefolderrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+
+
+### Response
+
+**Promise<[operations.UpdateFolderResponse](../../models/operations/updatefolderresponse.md)>**
+
+
+## updateList
+
+Update a list
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { UpdateListResponse } from "BREVO/dist/sdk/models/operations";
+
+const sdk = new Brevo({
+  security: {
+    apiKey: "",
+  },
+});
+
+sdk.contacts.updateList({
+  listId: 978571,
+  updateList: {
+    folderId: 2,
+    name: "Magento Customer - ES",
+  },
+}).then((res: UpdateListResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.UpdateListRequest](../../models/operations/updatelistrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+
+
+### Response
+
+**Promise<[operations.UpdateListResponse](../../models/operations/updatelistresponse.md)>**
+
