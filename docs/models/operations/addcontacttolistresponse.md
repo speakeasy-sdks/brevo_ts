@@ -1,0 +1,12 @@
+# AddContactToListResponse
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `contentType`                                                                     | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
+| `statusCode`                                                                      | *number*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
+| `rawResponse`                                                                     | [AxiosResponse>](https://axios-http.com/docs/res_schema)                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `errorModel`                                                                      | [shared.ErrorModel](../../models/shared/errormodel.md)                            | :heavy_minus_sign:                                                                | bad request                                                                       |
+| `postContactInfo`                                                                 | [shared.PostContactInfo](../../models/shared/postcontactinfo.md)                  | :heavy_minus_sign:                                                                | All contacts have been added successfully to the list with details of failed ones |
