@@ -1,0 +1,9 @@
+# AddCredits
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            | Example                                                                                |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `email`                                                                                | *number*                                                                               | :heavy_minus_sign:                                                                     | **Required if sms credits are empty.** Email credits to be added to the child account<br/> | 1200                                                                                   |
+| `sms`                                                                                  | *number*                                                                               | :heavy_minus_sign:                                                                     | **Required if email credits are empty.** SMS credits to be added to the child account<br/> | 450                                                                                    |
