@@ -1,0 +1,14 @@
+# CompanyAttributes
+
+List of attributes
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              | Example                                                                  |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `attributeOptions`                                                       | [components.AttributeOptions](../../models/shared/attributeoptions.md)[] | :heavy_minus_sign:                                                       | N/A                                                                      | [object Object]                                                          |
+| `attributeTypeName`                                                      | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      | text                                                                     |
+| `internalName`                                                           | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      | name                                                                     |
+| `isRequired`                                                             | *boolean*                                                                | :heavy_minus_sign:                                                       | N/A                                                                      | true                                                                     |
+| `label`                                                                  | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      | Company Name                                                             |

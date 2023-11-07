@@ -1,0 +1,9 @@
+# GetInboundEmailEventsByUuidLogs
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `date`                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)        | :heavy_minus_sign:                                                                                   | Date of the event                                                                                    |
+| `type`                                                                                               | [components.GetInboundEmailEventsByUuidType](../../models/shared/getinboundemaileventsbyuuidtype.md) | :heavy_minus_sign:                                                                                   | Type of the event                                                                                    |

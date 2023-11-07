@@ -1,0 +1,11 @@
+# GetExtendedContactDetailsUnsubscriptions
+
+Listing of the unsubscription for the contact
+
+
+## Fields
+
+| Field                                                                                                                            | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `adminUnsubscription`                                                                                                            | [components.GetExtendedContactDetailsAdminUnsubscription](../../models/shared/getextendedcontactdetailsadminunsubscription.md)[] | :heavy_check_mark:                                                                                                               | Contact has been unsubscribed from the administrator                                                                             |
+| `userUnsubscription`                                                                                                             | [components.GetExtendedContactDetailsUserUnsubscription](../../models/shared/getextendedcontactdetailsuserunsubscription.md)[]   | :heavy_check_mark:                                                                                                               | Contact unsubscribe via unsubscription link in a campaign                                                                        |
