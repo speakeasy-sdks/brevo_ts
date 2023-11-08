@@ -1,0 +1,13 @@
+# Statistics
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `clicks`                                                                   | [components.AbTestVersionStats](../../models/shared/abtestversionstats.md) | :heavy_check_mark:                                                         | Percentage of a particular event for both versions                         |
+| `complaints`                                                               | [components.AbTestVersionStats](../../models/shared/abtestversionstats.md) | :heavy_check_mark:                                                         | Percentage of a particular event for both versions                         |
+| `hardBounces`                                                              | [components.AbTestVersionStats](../../models/shared/abtestversionstats.md) | :heavy_check_mark:                                                         | Percentage of a particular event for both versions                         |
+| `openers`                                                                  | [components.AbTestVersionStats](../../models/shared/abtestversionstats.md) | :heavy_check_mark:                                                         | Percentage of a particular event for both versions                         |
+| `softBounces`                                                              | [components.AbTestVersionStats](../../models/shared/abtestversionstats.md) | :heavy_check_mark:                                                         | Percentage of a particular event for both versions                         |
+| `unsubscribed`                                                             | [components.AbTestVersionStats](../../models/shared/abtestversionstats.md) | :heavy_check_mark:                                                         | Percentage of a particular event for both versions                         |

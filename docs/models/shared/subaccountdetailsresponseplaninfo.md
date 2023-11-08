@@ -1,0 +1,12 @@
+# SubAccountDetailsResponsePlanInfo
+
+Sub-account plan details
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `credits`                                                                                                | [components.SubAccountDetailsResponseCredits](../../models/shared/subaccountdetailsresponsecredits.md)   | :heavy_minus_sign:                                                                                       | Credits quota and remaining credits on the sub-account                                                   |
+| `features`                                                                                               | [components.SubAccountDetailsResponseFeatures](../../models/shared/subaccountdetailsresponsefeatures.md) | :heavy_minus_sign:                                                                                       | Features available on the sub-account                                                                    |
+| `planType`                                                                                               | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | type of the plan                                                                                         |

@@ -1,0 +1,181 @@
+# TransactionalSMS
+(*.transactionalSMS*)
+
+### Available Operations
+
+* [getSmsEvents](#getsmsevents) - Get all your SMS activity (unaggregated events)
+* [getTransacAggregatedSmsReport](#gettransacaggregatedsmsreport) - Get your SMS activity aggregated over a period of time
+* [getTransacSmsReport](#gettransacsmsreport) - Get your SMS activity aggregated per day
+* [sendTransacSms](#sendtransacsms) - Send SMS message to a mobile number
+
+## getSmsEvents
+
+Get all your SMS activity (unaggregated events)
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { Event, GetSmsEventsQueryParamSort } from "BREVO/dist/models/operations";
+
+(async() => {
+  const sdk = new Brevo({
+    apiKey: "",
+  });
+
+  const res = await sdk.transactionalSMS.getSmsEvents({});
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetSmsEventsRequest](../../models/operations/getsmseventsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+
+
+### Response
+
+**Promise<[operations.GetSmsEventsResponse](../../models/operations/getsmseventsresponse.md)>**
+### Errors
+
+| Error Object      | Status Code       | Content Type      |
+| ----------------- | ----------------- | ----------------- |
+| errors.ErrorModel | 400               | application/json  |
+| errors.SDKError   | 400-600           | */*               |
+
+## getTransacAggregatedSmsReport
+
+Get your SMS activity aggregated over a period of time
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+
+(async() => {
+  const sdk = new Brevo({
+    apiKey: "",
+  });
+
+  const res = await sdk.transactionalSMS.getTransacAggregatedSmsReport({});
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+### Parameters
+
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                          | [operations.GetTransacAggregatedSmsReportRequest](../../models/operations/gettransacaggregatedsmsreportrequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+| `config`                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                       | :heavy_minus_sign:                                                                                                 | Available config options for making requests.                                                                      |
+
+
+### Response
+
+**Promise<[operations.GetTransacAggregatedSmsReportResponse](../../models/operations/gettransacaggregatedsmsreportresponse.md)>**
+### Errors
+
+| Error Object      | Status Code       | Content Type      |
+| ----------------- | ----------------- | ----------------- |
+| errors.ErrorModel | 400               | application/json  |
+| errors.SDKError   | 400-600           | */*               |
+
+## getTransacSmsReport
+
+Get your SMS activity aggregated per day
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { GetTransacSmsReportQueryParamSort } from "BREVO/dist/models/operations";
+
+(async() => {
+  const sdk = new Brevo({
+    apiKey: "",
+  });
+
+  const res = await sdk.transactionalSMS.getTransacSmsReport({});
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.GetTransacSmsReportRequest](../../models/operations/gettransacsmsreportrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+
+
+### Response
+
+**Promise<[operations.GetTransacSmsReportResponse](../../models/operations/gettransacsmsreportresponse.md)>**
+### Errors
+
+| Error Object      | Status Code       | Content Type      |
+| ----------------- | ----------------- | ----------------- |
+| errors.ErrorModel | 400               | application/json  |
+| errors.SDKError   | 400-600           | */*               |
+
+## sendTransacSms
+
+Send SMS message to a mobile number
+
+### Example Usage
+
+```typescript
+import { Brevo } from "BREVO";
+import { SendTransacSmsType } from "BREVO/dist/models/components";
+
+(async() => {
+  const sdk = new Brevo({
+    apiKey: "",
+  });
+
+  const res = await sdk.transactionalSMS.sendTransacSms({
+    content: "Enter this code:CCJJG8 to validate your account",
+    organisationPrefix: "MyCompany",
+    recipient: "33689965433",
+    sender: "MyShop",
+    tag: "accountValidation",
+    type: SendTransacSmsType.Marketing,
+    unicodeEnabled: true,
+    webUrl: "http://requestb.in/173lyyx1",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+### Parameters
+
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `request`                                                          | [components.SendTransacSms](../../models/shared/sendtransacsms.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
+| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
+
+
+### Response
+
+**Promise<[operations.SendTransacSmsResponse](../../models/operations/sendtransacsmsresponse.md)>**
+### Errors
+
+| Error Object      | Status Code       | Content Type      |
+| ----------------- | ----------------- | ----------------- |
+| errors.ErrorModel | 400,402           | application/json  |
+| errors.SDKError   | 400-600           | */*               |
