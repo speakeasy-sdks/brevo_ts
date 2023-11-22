@@ -1,0 +1,9 @@
+# GetTransacEmailsList
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `count`                                                                                       | *number*                                                                                      | :heavy_minus_sign:                                                                            | Total number of transactional emails available on your account according to the passed filter | 5                                                                                             |
+| `transactionalEmails`                                                                         | [components.TransactionalEmails](../../models/components/transactionalemails.md)[]            | :heavy_minus_sign:                                                                            | N/A                                                                                           |                                                                                               |
