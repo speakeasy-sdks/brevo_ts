@@ -1,0 +1,13 @@
+# BillingInfo
+
+Billing details of the master account organization
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `address`                                                                                          | [components.MasterDetailsResponseAddress](../../models/components/masterdetailsresponseaddress.md) | :heavy_minus_sign:                                                                                 | Billing address of master account                                                                  |
+| `companyName`                                                                                      | *string*                                                                                           | :heavy_minus_sign:                                                                                 | Company name of master account                                                                     |
+| `email`                                                                                            | *string*                                                                                           | :heavy_minus_sign:                                                                                 | Billing email id of master account                                                                 |
+| `name`                                                                                             | [components.Name](../../models/components/name.md)                                                 | :heavy_minus_sign:                                                                                 | Billing name of master account holder                                                              |
