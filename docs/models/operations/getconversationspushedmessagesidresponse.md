@@ -1,0 +1,11 @@
+# GetConversationsPushedMessagesIdResponse
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `contentType`                                                                      | *string*                                                                           | :heavy_check_mark:                                                                 | HTTP response content type for this operation                                      |
+| `conversationsMessage`                                                             | [components.ConversationsMessage](../../models/components/conversationsmessage.md) | :heavy_minus_sign:                                                                 | Requested message is returned as a response                                        |
+| `statusCode`                                                                       | *number*                                                                           | :heavy_check_mark:                                                                 | HTTP response status code for this operation                                       |
+| `rawResponse`                                                                      | [AxiosResponse](https://axios-http.com/docs/res_schema)                            | :heavy_check_mark:                                                                 | Raw HTTP response; suitable for custom response parsing                            |
