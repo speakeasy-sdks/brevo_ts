@@ -1,0 +1,9 @@
+# CreateChildDomainRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `addChildDomain`                                                                                     | [components.AddChildDomain](../../models/components/addchilddomain.md)                               | :heavy_check_mark:                                                                                   | Sender domain to add for a specific child account. This will not be displayed to the parent account. |
+| `childIdentifier`                                                                                    | *string*                                                                                             | :heavy_check_mark:                                                                                   | Either auth key or id of reseller's child                                                            |
