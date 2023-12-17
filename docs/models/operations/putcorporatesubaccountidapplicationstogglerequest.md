@@ -1,0 +1,9 @@
+# PutCorporateSubAccountIdApplicationsToggleRequest
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `id`                                                                                             | *number*                                                                                         | :heavy_check_mark:                                                                               | Id of the sub-account organization (mandatory)                                                   |
+| `subAccountAppsToggleRequest`                                                                    | [components.SubAccountAppsToggleRequest](../../models/components/subaccountappstogglerequest.md) | :heavy_check_mark:                                                                               | List of applications to activate or deactivate on a sub-account                                  |

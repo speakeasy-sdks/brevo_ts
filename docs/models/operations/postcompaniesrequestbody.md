@@ -1,0 +1,12 @@
+# PostCompaniesRequestBody
+
+Company create data.
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              | Example                                                                                  |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `attributes`                                                                             | [operations.PostCompaniesAttributes](../../models/operations/postcompaniesattributes.md) | :heavy_minus_sign:                                                                       | Attributes for company creation                                                          |                                                                                          |
+| `countryCode`                                                                            | *number*                                                                                 | :heavy_minus_sign:                                                                       | Country code if phone_number is passed in attributes.                                    | 91                                                                                       |
+| `name`                                                                                   | *string*                                                                                 | :heavy_check_mark:                                                                       | Name of company                                                                          | company                                                                                  |
