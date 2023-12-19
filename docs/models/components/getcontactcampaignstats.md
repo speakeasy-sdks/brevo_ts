@@ -1,0 +1,18 @@
+# GetContactCampaignStats
+
+Campaign Statistics for the contact
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `clicked`                                                                      | [components.Clicked](../../models/components/clicked.md)[]                     | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `complaints`                                                                   | [components.Complaints](../../models/components/complaints.md)[]               | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `delivered`                                                                    | [components.Delivered](../../models/components/delivered.md)[]                 | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `hardBounces`                                                                  | [components.HardBounces](../../models/components/hardbounces.md)[]             | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `messagesSent`                                                                 | [components.MessagesSent](../../models/components/messagessent.md)[]           | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `opened`                                                                       | [components.Opened](../../models/components/opened.md)[]                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `softBounces`                                                                  | [components.SoftBounces](../../models/components/softbounces.md)[]             | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `transacAttributes`                                                            | [components.TransacAttributes](../../models/components/transacattributes.md)[] | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `unsubscriptions`                                                              | [components.Unsubscriptions](../../models/components/unsubscriptions.md)       | :heavy_minus_sign:                                                             | N/A                                                                            |
