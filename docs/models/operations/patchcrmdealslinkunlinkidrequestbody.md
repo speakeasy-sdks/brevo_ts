@@ -1,0 +1,13 @@
+# PatchCrmDealsLinkUnlinkIdRequestBody
+
+Linked / Unlinked contacts and companies ids.
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `linkCompanyIds`                                                                   | *string*[]                                                                         | :heavy_minus_sign:                                                                 | Company ids to be linked with deal                                                 | ["61a5ce58c5d4795761045990","61a5ce58c5d4795761045991","61a5ce58c5d4795761045992"] |
+| `linkContactIds`                                                                   | *number*[]                                                                         | :heavy_minus_sign:                                                                 | Contact ids for contacts to be linked with deal                                    | [1,2,3]                                                                            |
+| `unlinkCompanyIds`                                                                 | *string*[]                                                                         | :heavy_minus_sign:                                                                 | Company ids to be unlinked from deal                                               | ["61a5ce58c5d4795761045994","61a5ce58c5d479576104595","61a5ce58c5d4795761045996"]  |
+| `unlinkContactIds`                                                                 | *number*[]                                                                         | :heavy_minus_sign:                                                                 | Contact ids for contacts to be unlinked from deal                                  | [4,5,6]                                                                            |

@@ -1,0 +1,12 @@
+# SendTransacEmailResponse
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `contentType`                                                                | *string*                                                                     | :heavy_check_mark:                                                           | HTTP response content type for this operation                                |
+| `statusCode`                                                                 | *number*                                                                     | :heavy_check_mark:                                                           | HTTP response status code for this operation                                 |
+| `rawResponse`                                                                | [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)        | :heavy_check_mark:                                                           | Raw HTTP response; suitable for custom response parsing                      |
+| `createSmtpEmail`                                                            | [components.CreateSmtpEmail](../../models/components/createsmtpemail.md)     | :heavy_minus_sign:                                                           | transactional email sent                                                     |
+| `scheduleSmtpEmail`                                                          | [components.ScheduleSmtpEmail](../../models/components/schedulesmtpemail.md) | :heavy_minus_sign:                                                           | transactional email scheduled                                                |
