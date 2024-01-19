@@ -1,0 +1,9 @@
+# GetDomainConfigurationModelDnsRecords
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `brevoCode`                                                                                                          | [components.GetDomainConfigurationModelBrevoCode](../../models/components/getdomainconfigurationmodelbrevocode.md)   | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `dkimRecord`                                                                                                         | [components.GetDomainConfigurationModelDkimRecord](../../models/components/getdomainconfigurationmodeldkimrecord.md) | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
