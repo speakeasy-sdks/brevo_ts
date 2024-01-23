@@ -1,0 +1,9 @@
+# UpdateCouponCollectionRequest
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `requestBody`                                                                                                | [operations.UpdateCouponCollectionRequestBody](../../models/operations/updatecouponcollectionrequestbody.md) | :heavy_check_mark:                                                                                           | Values to update the coupon collection                                                                       |
+| `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | Id of the collection to update                                                                               |
