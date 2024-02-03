@@ -1,0 +1,12 @@
+# PatchCompaniesIdRequestBody
+
+Updated company details.
+
+
+## Fields
+
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    | Example                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `attributes`                                                   | [operations.Attributes](../../models/operations/attributes.md) | :heavy_minus_sign:                                             | Attributes for company update                                  |                                                                |
+| `countryCode`                                                  | *number*                                                       | :heavy_minus_sign:                                             | Country code if phone_number is passed in attributes.          | 91                                                             |
+| `name`                                                         | *string*                                                       | :heavy_minus_sign:                                             | Name of company                                                | company                                                        |
