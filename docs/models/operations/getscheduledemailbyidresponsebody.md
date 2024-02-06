@@ -1,0 +1,4 @@
+# GetScheduledEmailByIdResponseBody
+
+Scheduled email batches
+
