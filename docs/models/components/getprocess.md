@@ -1,0 +1,11 @@
+# GetProcess
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `exportUrl`                                                                | *string*                                                                   | :heavy_minus_sign:                                                         | URL on which send export the of contacts once the process is completed     | http://requestb.in/16ua3aj1                                                |
+| `id`                                                                       | *number*                                                                   | :heavy_check_mark:                                                         | Id of the process                                                          | 145                                                                        |
+| `name`                                                                     | *string*                                                                   | :heavy_check_mark:                                                         | Process name                                                               | IMPORTUSER                                                                 |
+| `status`                                                                   | [components.GetProcessStatus](../../models/components/getprocessstatus.md) | :heavy_check_mark:                                                         | Status of the process                                                      | queued                                                                     |
