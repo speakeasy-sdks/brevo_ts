@@ -1,0 +1,9 @@
+# UpdateCampaignStatusRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `campaignId`                                                                       | *number*                                                                           | :heavy_check_mark:                                                                 | Id of the campaign                                                                 |                                                                                    |
+| `updateCampaignStatus`                                                             | [components.UpdateCampaignStatus](../../models/components/updatecampaignstatus.md) | :heavy_check_mark:                                                                 | Status of the campaign                                                             | draft                                                                              |
