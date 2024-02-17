@@ -171,7 +171,6 @@ export class WhatsAppCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/whatsappCampaigns/{campaignId}")(pathParams$);
 
         let security$;
@@ -238,7 +237,6 @@ export class WhatsAppCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/whatsappCampaigns/{campaignId}")(pathParams$);
 
         let security$;
@@ -522,7 +520,6 @@ export class WhatsAppCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/whatsappCampaigns/template/approval/{templateId}"
         )(pathParams$);
@@ -595,7 +592,6 @@ export class WhatsAppCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/whatsappCampaigns/{campaignId}")(pathParams$);
 
         let security$;

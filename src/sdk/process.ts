@@ -42,7 +42,6 @@ export class Process extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/processes/{processId}")(pathParams$);
 
         let security$;

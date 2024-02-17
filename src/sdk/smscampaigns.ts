@@ -107,7 +107,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}")(pathParams$);
 
         let security$;
@@ -174,7 +173,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}")(pathParams$);
 
         let security$;
@@ -332,7 +330,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}/exportRecipients")(
             pathParams$
         );
@@ -404,7 +401,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}/sendNow")(pathParams$);
 
         let security$;
@@ -476,7 +472,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}/sendReport")(
             pathParams$
         );
@@ -547,7 +542,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}/sendTest")(pathParams$);
 
         let security$;
@@ -623,7 +617,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}")(pathParams$);
 
         let security$;
@@ -692,7 +685,6 @@ export class SMSCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smsCampaigns/{campaignId}/status")(pathParams$);
 
         let security$;

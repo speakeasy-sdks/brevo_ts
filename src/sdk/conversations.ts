@@ -43,7 +43,6 @@ export class Conversations extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/conversations/messages/{id}")(pathParams$);
 
         let security$;
@@ -110,7 +109,6 @@ export class Conversations extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/conversations/pushedMessages/{id}")(pathParams$);
 
         let security$;
@@ -176,7 +174,6 @@ export class Conversations extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/conversations/messages/{id}")(pathParams$);
 
         let security$;
@@ -244,7 +241,6 @@ export class Conversations extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/conversations/pushedMessages/{id}")(pathParams$);
 
         let security$;
@@ -518,7 +514,6 @@ export class Conversations extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/conversations/messages/{id}")(pathParams$);
 
         let security$;
@@ -588,7 +583,6 @@ export class Conversations extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/conversations/pushedMessages/{id}")(pathParams$);
 
         let security$;

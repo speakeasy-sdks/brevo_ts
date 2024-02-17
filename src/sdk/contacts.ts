@@ -45,7 +45,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/lists/{listId}/contacts/add")(
             pathParams$
         );
@@ -123,7 +122,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/contacts/attributes/{attributeCategory}/{attributeName}"
         )(pathParams$);
@@ -453,7 +451,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/contacts/attributes/{attributeCategory}/{attributeName}"
         )(pathParams$);
@@ -522,7 +519,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/folders/{folderId}")(pathParams$);
 
         let security$;
@@ -589,7 +585,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/lists/{listId}")(pathParams$);
 
         let security$;
@@ -780,7 +775,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/lists/{listId}/contacts")(pathParams$);
 
         const query$ = [
@@ -863,7 +857,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/folders/{folderId}")(pathParams$);
 
         let security$;
@@ -933,7 +926,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/folders/{folderId}/lists")(pathParams$);
 
         const query$ = [
@@ -1084,7 +1076,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/lists/{listId}")(pathParams$);
 
         let security$;
@@ -1367,7 +1358,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/lists/{listId}/contacts/remove")(
             pathParams$
         );
@@ -1512,7 +1502,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/contacts/attributes/{attributeCategory}/{attributeName}"
         )(pathParams$);
@@ -1644,7 +1633,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/folders/{folderId}")(pathParams$);
 
         let security$;
@@ -1713,7 +1701,6 @@ export class Contacts extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/contacts/lists/{listId}")(pathParams$);
 
         let security$;

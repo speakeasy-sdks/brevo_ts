@@ -39,7 +39,6 @@ export class Tasks extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/tasks/{id}")(pathParams$);
 
         let security$;
@@ -209,7 +208,6 @@ export class Tasks extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/tasks/{id}")(pathParams$);
 
         let security$;
@@ -322,7 +320,6 @@ export class Tasks extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/tasks/{id}")(pathParams$);
 
         let security$;

@@ -39,7 +39,6 @@ export class Companies extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/companies/{id}")(pathParams$);
 
         let security$;
@@ -234,7 +233,6 @@ export class Companies extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/companies/{id}")(pathParams$);
 
         let security$;
@@ -303,7 +301,6 @@ export class Companies extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/companies/link-unlink/{id}")(pathParams$);
 
         let security$;
@@ -369,7 +366,6 @@ export class Companies extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/companies/{id}")(pathParams$);
 
         let security$;

@@ -40,7 +40,6 @@ export class MasterAccount extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/corporate/subAccount/{id}")(pathParams$);
 
         let security$;
@@ -316,7 +315,6 @@ export class MasterAccount extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/corporate/subAccount/{id}")(pathParams$);
 
         let security$;
@@ -600,7 +598,6 @@ export class MasterAccount extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/corporate/subAccount/{id}/applications/toggle")(
             pathParams$
         );
@@ -676,7 +673,6 @@ export class MasterAccount extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/corporate/subAccount/{id}/plan")(pathParams$);
 
         let security$;

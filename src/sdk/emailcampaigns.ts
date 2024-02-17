@@ -107,7 +107,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}")(pathParams$);
 
         let security$;
@@ -176,7 +175,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}/exportRecipients")(
             pathParams$
         );
@@ -251,7 +249,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/emailCampaigns/{campaignId}/abTestCampaignResult"
         )(pathParams$);
@@ -323,7 +320,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}")(pathParams$);
 
         const query$ = [
@@ -496,7 +492,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}/sharedUrl")(
             pathParams$
         );
@@ -568,7 +563,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}/sendNow")(
             pathParams$
         );
@@ -642,7 +636,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}/sendReport")(
             pathParams$
         );
@@ -713,7 +706,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}/sendTest")(
             pathParams$
         );
@@ -784,7 +776,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}/status")(pathParams$);
 
         let security$;
@@ -853,7 +844,6 @@ export class EmailCampaigns extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/emailCampaigns/{campaignId}")(pathParams$);
 
         let security$;

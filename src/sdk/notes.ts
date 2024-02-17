@@ -40,7 +40,6 @@ export class Notes extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/notes/{id}")(pathParams$);
 
         let security$;
@@ -186,7 +185,6 @@ export class Notes extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/notes/{id}")(pathParams$);
 
         let security$;
@@ -255,7 +253,6 @@ export class Notes extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/notes/{id}")(pathParams$);
 
         let security$;

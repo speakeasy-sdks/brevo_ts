@@ -95,7 +95,6 @@ export class User extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/organization/user/{email}/permissions")(
             pathParams$
         );

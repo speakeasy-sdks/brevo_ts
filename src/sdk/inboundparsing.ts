@@ -53,7 +53,6 @@ export class InboundParsing extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/inbound/attachments/{downloadToken}")(
             pathParams$
         );
@@ -213,7 +212,6 @@ export class InboundParsing extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/inbound/events/{uuid}")(pathParams$);
 
         let security$;

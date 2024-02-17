@@ -509,7 +509,6 @@ export class Ecommerce extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/categories/{id}")(pathParams$);
 
         let security$;
@@ -576,7 +575,6 @@ export class Ecommerce extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/products/{id}")(pathParams$);
 
         let security$;

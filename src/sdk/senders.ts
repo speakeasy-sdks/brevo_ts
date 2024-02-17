@@ -108,7 +108,6 @@ export class Senders extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/senders/{senderId}")(pathParams$);
 
         let security$;
@@ -219,7 +218,6 @@ export class Senders extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/senders/{senderId}/ips")(pathParams$);
 
         let security$;
@@ -362,7 +360,6 @@ export class Senders extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/senders/{senderId}")(pathParams$);
 
         let security$;
@@ -431,7 +428,6 @@ export class Senders extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/senders/{senderId}/validate")(pathParams$);
 
         let security$;

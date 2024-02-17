@@ -113,7 +113,6 @@ export class ExternalFeeds extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/feeds/{uuid}")(pathParams$);
 
         let security$;
@@ -271,7 +270,6 @@ export class ExternalFeeds extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/feeds/{uuid}")(pathParams$);
 
         let security$;
@@ -346,7 +344,6 @@ export class ExternalFeeds extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/feeds/{uuid}")(pathParams$);
 
         let security$;

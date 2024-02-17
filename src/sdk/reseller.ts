@@ -45,7 +45,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/reseller/children/{childIdentifier}/credits/add")(
             pathParams$
         );
@@ -119,7 +118,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/reseller/children/{childIdentifier}/ips/associate"
         )(pathParams$);
@@ -190,7 +188,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/reseller/children/{childIdentifier}/domains")(
             pathParams$
         );
@@ -328,7 +325,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/reseller/children/{childIdentifier}/domains/{domainName}"
         )(pathParams$);
@@ -397,7 +393,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/reseller/children/{childIdentifier}")(
             pathParams$
         );
@@ -468,7 +463,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/reseller/children/{childIdentifier}/ips/dissociate"
         )(pathParams$);
@@ -538,7 +532,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/reseller/children/{childIdentifier}/accountCreationStatus"
         )(pathParams$);
@@ -610,7 +603,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/reseller/children/{childIdentifier}/domains")(
             pathParams$
         );
@@ -682,7 +674,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/reseller/children/{childIdentifier}")(
             pathParams$
         );
@@ -828,7 +819,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/reseller/children/{childIdentifier}/auth")(
             pathParams$
         );
@@ -902,7 +892,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/reseller/children/{childIdentifier}/credits/remove"
         )(pathParams$);
@@ -976,7 +965,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/reseller/children/{childIdentifier}/accountStatus"
         )(pathParams$);
@@ -1051,7 +1039,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/reseller/children/{childIdentifier}/domains/{domainName}"
         )(pathParams$);
@@ -1122,7 +1109,6 @@ export class Reseller extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/reseller/children/{childIdentifier}")(
             pathParams$
         );

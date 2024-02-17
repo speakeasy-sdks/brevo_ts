@@ -107,7 +107,6 @@ export class Webhooks extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/webhooks/{webhookId}")(pathParams$);
 
         let security$;
@@ -241,7 +240,6 @@ export class Webhooks extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/webhooks/{webhookId}")(pathParams$);
 
         let security$;
@@ -384,7 +382,6 @@ export class Webhooks extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/webhooks/{webhookId}")(pathParams$);
 
         let security$;

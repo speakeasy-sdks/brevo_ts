@@ -164,7 +164,6 @@ export class Coupons extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/couponCollections/{id}")(pathParams$);
 
         let security$;
@@ -305,7 +304,6 @@ export class Coupons extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/couponCollections/{id}")(pathParams$);
 
         let security$;

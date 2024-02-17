@@ -174,7 +174,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/blockedDomains/{domain}")(pathParams$);
 
         let security$;
@@ -309,7 +308,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/email/{identifier}")(pathParams$);
 
         let security$;
@@ -376,7 +374,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/templates/{templateId}")(pathParams$);
 
         let security$;
@@ -444,7 +441,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/blockedContacts/{email}")(pathParams$);
 
         let security$;
@@ -513,7 +509,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/log/{messageId}")(pathParams$);
 
         let security$;
@@ -809,7 +804,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/emailStatus/{identifier}")(pathParams$);
 
         const query$ = [
@@ -979,7 +973,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/templates/{templateId}")(pathParams$);
 
         let security$;
@@ -1209,7 +1202,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/emails/{uuid}")(pathParams$);
 
         let security$;
@@ -1366,7 +1358,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/templates/{templateId}/sendTest")(
             pathParams$
         );
@@ -1515,7 +1506,6 @@ export class TransactionalEmails extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/smtp/templates/{templateId}")(pathParams$);
 
         let security$;

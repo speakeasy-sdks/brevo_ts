@@ -39,7 +39,6 @@ export class Deals extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/deals/{id}")(pathParams$);
 
         let security$;
@@ -235,7 +234,6 @@ export class Deals extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/deals/{id}")(pathParams$);
 
         let security$;
@@ -410,7 +408,6 @@ export class Deals extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/crm/pipeline/details/{pipelineID}")(pathParams$);
 
         let security$;
@@ -479,7 +476,6 @@ export class Deals extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/deals/link-unlink/{id}")(pathParams$);
 
         let security$;
@@ -545,7 +541,6 @@ export class Deals extends ClientSDK {
         const pathParams$ = {
             id: enc$.encodeSimple("id", payload$.id, { explode: false, charEncoding: "percent" }),
         };
-
         const path$ = this.templateURLComponent("/crm/deals/{id}")(pathParams$);
 
         let security$;

@@ -43,7 +43,6 @@ export class Domains extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/senders/domains/{domainName}/authenticate")(
             pathParams$
         );
@@ -180,7 +179,6 @@ export class Domains extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/senders/domains/{domainName}")(pathParams$);
 
         let security$;
@@ -247,7 +245,6 @@ export class Domains extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/senders/domains/{domainName}")(pathParams$);
 
         let security$;

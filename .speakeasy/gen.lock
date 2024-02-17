@@ -4,7 +4,7 @@ management:
   docChecksum: fd6551c04044961cce38d49d9c1dd06d
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.258.0
+  generationVersion: 2.262.2
   releaseVersion: 0.1.0
   configChecksum: 570697fd830084ae3e7e79d44c7be37b
   repoURL: https://github.com/speakeasy-sdks/brevo_ts.git
