@@ -9,7 +9,11 @@ generation:
     requestResponseComponentNamesFeb2024: false
   baseServerURL: ""
 typescript:
-  version: 0.1.0
+  version: 0.2.0
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
   author: test
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
