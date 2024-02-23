@@ -668,7 +668,6 @@ export class MasterAccount extends ClientSDK {
             operations.PutCorporateSubAccountIdApplicationsToggleRequest$.outboundSchema.parse(
                 input
             );
-
         const body$ = enc$.encodeJSON("body", payload$.subAccountAppsToggleRequest, {
             explode: true,
         });
@@ -751,7 +750,6 @@ export class MasterAccount extends ClientSDK {
 
         const payload$ =
             operations.PutCorporateSubAccountIdPlanRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.subAccountUpdatePlanRequest, {
             explode: true,
         });

@@ -579,7 +579,6 @@ export class Conversations extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.PutConversationsMessagesIdRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
@@ -656,7 +655,6 @@ export class Conversations extends ClientSDK {
 
         const payload$ =
             operations.PutConversationsPushedMessagesIdRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {

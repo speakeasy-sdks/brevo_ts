@@ -363,7 +363,6 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.RequestSmsRecipientExportRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.requestSmsRecipientExport, {
             explode: true,
         });
@@ -523,7 +522,6 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.SendSmsReportRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.sendReport, { explode: true });
 
         const pathParams$ = {
@@ -601,7 +599,6 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.SendTestSmsRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.sendTestSms, { explode: true });
 
         const pathParams$ = {
@@ -684,7 +681,6 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateSmsCampaignRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateSmsCampaign, { explode: true });
 
         const pathParams$ = {
@@ -760,7 +756,6 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateSmsCampaignStatusRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateCampaignStatus, { explode: true });
 
         const pathParams$ = {

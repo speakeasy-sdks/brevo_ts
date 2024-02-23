@@ -363,7 +363,6 @@ export class Tasks extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.PatchCrmTasksIdRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {

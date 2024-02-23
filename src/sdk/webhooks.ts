@@ -425,7 +425,6 @@ export class Webhooks extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateWebhookRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateWebhook, { explode: true });
 
         const pathParams$ = {

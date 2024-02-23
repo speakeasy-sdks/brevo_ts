@@ -661,7 +661,6 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateWhatsAppCampaignRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateWhatsAppCampaign, { explode: true });
 
         const pathParams$ = {

@@ -379,7 +379,6 @@ export class ExternalFeeds extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateExternalFeedRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateExternalFeed, { explode: true });
 
         const pathParams$ = {

@@ -1492,7 +1492,6 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.SendTestTemplateRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.sendTestEmail, { explode: true });
 
         const pathParams$ = {
@@ -1656,7 +1655,6 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateSmtpTemplateRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateSmtpTemplate, { explode: true });
 
         const pathParams$ = {

@@ -51,7 +51,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.AddCreditsRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.addCredits, { explode: true });
 
         const pathParams$ = {
@@ -132,7 +131,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.AssociateIpToChildRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.manageIp, { explode: true });
 
         const pathParams$ = {
@@ -210,7 +208,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.CreateChildDomainRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.addChildDomain, { explode: true });
 
         const pathParams$ = {
@@ -517,7 +514,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.DissociateIpFromChildRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.manageIp, { explode: true });
 
         const pathParams$ = {
@@ -991,7 +987,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.RemoveCreditsRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.removeCredits, { explode: true });
 
         const pathParams$ = {
@@ -1072,7 +1067,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateChildAccountStatusRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateChildAccountStatus, { explode: true });
 
         const pathParams$ = {
@@ -1150,7 +1144,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateChildDomainRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateChildDomain, { explode: true });
 
         const pathParams$ = {
@@ -1232,7 +1225,6 @@ export class Reseller extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateResellerChildRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateChild, { explode: true });
 
         const pathParams$ = {

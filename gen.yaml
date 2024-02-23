@@ -9,7 +9,7 @@ generation:
     requestResponseComponentNamesFeb2024: false
   baseServerURL: ""
 typescript:
-  version: 0.2.0
+  version: 0.3.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -29,4 +29,5 @@ typescript:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: BREVO
+  responseFormat: envelope
   templateVersion: v2

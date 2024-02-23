@@ -283,7 +283,6 @@ export class Notes extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.PatchCrmNotesIdRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.NoteData, { explode: true });
 
         const pathParams$ = {

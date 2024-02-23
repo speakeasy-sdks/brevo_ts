@@ -408,7 +408,6 @@ export class Senders extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateSenderRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateSender, { explode: true });
 
         const pathParams$ = {
@@ -484,7 +483,6 @@ export class Senders extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.ValidateSenderByOTPRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.otp, { explode: true });
 
         const pathParams$ = {

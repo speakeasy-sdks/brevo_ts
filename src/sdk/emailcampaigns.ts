@@ -197,7 +197,6 @@ export class EmailCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.EmailExportRecipientsRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.emailExportRecipients, { explode: true });
 
         const pathParams$ = {
@@ -700,7 +699,6 @@ export class EmailCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.SendReportRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.sendReport, { explode: true });
 
         const pathParams$ = {
@@ -778,7 +776,6 @@ export class EmailCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.SendTestEmailRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.sendTestEmail, { explode: true });
 
         const pathParams$ = {
@@ -856,7 +853,6 @@ export class EmailCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateCampaignStatusRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateCampaignStatus, { explode: true });
 
         const pathParams$ = {
@@ -932,7 +928,6 @@ export class EmailCampaigns extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateEmailCampaignRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateEmailCampaign, { explode: true });
 
         const pathParams$ = {

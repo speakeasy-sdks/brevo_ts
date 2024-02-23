@@ -344,7 +344,6 @@ export class Companies extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.PatchCompaniesLinkUnlinkIdRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
@@ -417,7 +416,6 @@ export class Companies extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.PatchCompaniesIdRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {

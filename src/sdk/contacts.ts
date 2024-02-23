@@ -51,7 +51,6 @@ export class Contacts extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.AddContactToListRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
@@ -132,7 +131,6 @@ export class Contacts extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.CreateAttributeRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.createAttribute, { explode: true });
 
         const pathParams$ = {
@@ -1503,7 +1501,6 @@ export class Contacts extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.RemoveContactFromListRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
@@ -1659,7 +1656,6 @@ export class Contacts extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateAttributeRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateAttribute, { explode: true });
 
         const pathParams$ = {
@@ -1810,7 +1806,6 @@ export class Contacts extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateFolderRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.createUpdateFolder, { explode: true });
 
         const pathParams$ = {
@@ -1886,7 +1881,6 @@ export class Contacts extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateListRequest$.outboundSchema.parse(input);
-
         const body$ = enc$.encodeJSON("body", payload$.updateList, { explode: true });
 
         const pathParams$ = {
