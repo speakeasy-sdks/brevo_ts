@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
 import * as errors from "../models/errors";
@@ -50,7 +51,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.CreateSmsCampaign$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.CreateSmsCampaign$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/smsCampaigns")();
@@ -69,9 +74,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "createSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -92,17 +96,29 @@ export class SMSCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.CreateSmsCampaignResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createModel: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.CreateSmsCampaignResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createModel: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -121,7 +137,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteSmsCampaignRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteSmsCampaignRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -146,9 +166,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "deleteSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -171,17 +190,27 @@ export class SMSCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteSmsCampaignResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteSmsCampaignResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -195,7 +224,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetSmsCampaignRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetSmsCampaignRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -220,9 +253,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "getSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -243,17 +275,29 @@ export class SMSCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetSmsCampaignResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getSmsCampaign: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetSmsCampaignResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getSmsCampaign: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -272,7 +316,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetSmsCampaignsRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetSmsCampaignsRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/smsCampaigns")();
@@ -306,9 +354,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "getSmsCampaigns" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -329,17 +376,29 @@ export class SMSCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetSmsCampaignsResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getSmsCampaigns: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetSmsCampaignsResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getSmsCampaigns: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -362,7 +421,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.RequestSmsRecipientExportRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.RequestSmsRecipientExportRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.requestSmsRecipientExport, {
             explode: true,
         });
@@ -391,9 +454,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "requestSmsRecipientExport" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -414,17 +476,29 @@ export class SMSCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 202, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.RequestSmsRecipientExportResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createdProcessId: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.RequestSmsRecipientExportResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createdProcessId: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -443,7 +517,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.SendSmsCampaignNowRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.SendSmsCampaignNowRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -468,9 +546,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "sendSmsCampaignNow" };
         const doOptions = { context, errorCodes: ["400", "402", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -493,17 +570,27 @@ export class SMSCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 402, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.SendSmsCampaignNowResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.SendSmsCampaignNowResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -521,7 +608,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.SendSmsReportRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.SendSmsReportRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.sendReport, { explode: true });
 
         const pathParams$ = {
@@ -548,9 +639,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "sendSmsReport" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -573,17 +663,27 @@ export class SMSCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.SendSmsReportResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.SendSmsReportResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -598,7 +698,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.SendTestSmsRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.SendTestSmsRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.sendTestSms, { explode: true });
 
         const pathParams$ = {
@@ -623,9 +727,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "sendTestSms" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -648,24 +751,40 @@ export class SMSCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.PostSendSmsTestFailed$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.PostSendSmsTestFailed$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else if (this.matchResponse(response, 404, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.SendTestSmsResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.SendTestSmsResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -680,7 +799,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UpdateSmsCampaignRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.UpdateSmsCampaignRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.updateSmsCampaign, { explode: true });
 
         const pathParams$ = {
@@ -705,9 +828,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "updateSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "PUT",
                 path: path$,
@@ -730,17 +852,27 @@ export class SMSCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.UpdateSmsCampaignResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.UpdateSmsCampaignResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -755,7 +887,11 @@ export class SMSCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UpdateSmsCampaignStatusRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.UpdateSmsCampaignStatusRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.updateCampaignStatus, { explode: true });
 
         const pathParams$ = {
@@ -780,9 +916,8 @@ export class SMSCampaigns extends ClientSDK {
 
         const context = { operationID: "updateSmsCampaignStatus" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "PUT",
                 path: path$,
@@ -805,16 +940,26 @@ export class SMSCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.UpdateSmsCampaignStatusResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.UpdateSmsCampaignStatusResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 }

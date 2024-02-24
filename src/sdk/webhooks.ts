@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
 import * as errors from "../models/errors";
@@ -50,7 +51,11 @@ export class Webhooks extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.CreateWebhook$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.CreateWebhook$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/webhooks")();
@@ -69,9 +74,8 @@ export class Webhooks extends ClientSDK {
 
         const context = { operationID: "createWebhook" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -92,17 +96,29 @@ export class Webhooks extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.CreateWebhookResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createModel: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.CreateWebhookResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createModel: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -121,7 +137,11 @@ export class Webhooks extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteWebhookRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteWebhookRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -146,9 +166,8 @@ export class Webhooks extends ClientSDK {
 
         const context = { operationID: "deleteWebhook" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -171,17 +190,27 @@ export class Webhooks extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteWebhookResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteWebhookResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -199,7 +228,11 @@ export class Webhooks extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.ExportWebhooksHistoryRequestBody$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.ExportWebhooksHistoryRequestBody$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/webhooks/export")();
@@ -218,9 +251,8 @@ export class Webhooks extends ClientSDK {
 
         const context = { operationID: "exportWebhooksHistory" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -241,17 +273,29 @@ export class Webhooks extends ClientSDK {
 
         if (this.matchResponse(response, 202, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.ExportWebhooksHistoryResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createdProcessId: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.ExportWebhooksHistoryResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createdProcessId: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -270,7 +314,11 @@ export class Webhooks extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetWebhookRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetWebhookRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -295,9 +343,8 @@ export class Webhooks extends ClientSDK {
 
         const context = { operationID: "getWebhook" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -318,17 +365,29 @@ export class Webhooks extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetWebhookResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getWebhook: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetWebhookResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getWebhook: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -347,7 +406,11 @@ export class Webhooks extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetWebhooksRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetWebhooksRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/webhooks")();
@@ -371,9 +434,8 @@ export class Webhooks extends ClientSDK {
 
         const context = { operationID: "getWebhooks" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -394,17 +456,29 @@ export class Webhooks extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetWebhooksResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getWebhooks: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetWebhooksResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getWebhooks: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -424,7 +498,11 @@ export class Webhooks extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UpdateWebhookRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.UpdateWebhookRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.updateWebhook, { explode: true });
 
         const pathParams$ = {
@@ -449,9 +527,8 @@ export class Webhooks extends ClientSDK {
 
         const context = { operationID: "updateWebhook" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "PUT",
                 path: path$,
@@ -474,16 +551,26 @@ export class Webhooks extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.UpdateWebhookResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.UpdateWebhookResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 }

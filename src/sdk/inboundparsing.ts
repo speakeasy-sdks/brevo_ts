@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../models/errors";
 import * as operations from "../models/operations";
@@ -59,7 +60,11 @@ export class InboundParsing extends ClientSDK {
             options?.acceptHeaderOverride || "application/json;q=1, application/octet-stream;q=0";
         headers$.set("Accept", accept);
 
-        const payload$ = operations.GetInboundEmailAttachmentRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetInboundEmailAttachmentRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -86,9 +91,8 @@ export class InboundParsing extends ClientSDK {
 
         const context = { operationID: "getInboundEmailAttachment" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -109,18 +113,30 @@ export class InboundParsing extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/octet-stream")) {
             const responseBody = response.body ?? undefined;
-            const result = operations.GetInboundEmailAttachmentResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                stream: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetInboundEmailAttachmentResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        stream: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -142,7 +158,11 @@ export class InboundParsing extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetInboundEmailEventsRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetInboundEmailEventsRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/inbound/events")();
@@ -176,9 +196,8 @@ export class InboundParsing extends ClientSDK {
 
         const context = { operationID: "getInboundEmailEvents" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -199,17 +218,29 @@ export class InboundParsing extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetInboundEmailEventsResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getInboundEmailEvents: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetInboundEmailEventsResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getInboundEmailEvents: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -231,7 +262,11 @@ export class InboundParsing extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetInboundEmailEventsByUuidRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetInboundEmailEventsByUuidRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -256,9 +291,8 @@ export class InboundParsing extends ClientSDK {
 
         const context = { operationID: "getInboundEmailEventsByUuid" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -279,17 +313,29 @@ export class InboundParsing extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetInboundEmailEventsByUuidResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getInboundEmailEventsByUuid: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetInboundEmailEventsByUuidResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getInboundEmailEventsByUuid: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();

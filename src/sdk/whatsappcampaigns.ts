@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
 import * as errors from "../models/errors";
@@ -50,7 +51,11 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.CreateWhatsAppCampaign$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.CreateWhatsAppCampaign$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/whatsappCampaigns")();
@@ -69,9 +74,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "createWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -92,17 +96,29 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.CreateWhatsAppCampaignResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createModel: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.CreateWhatsAppCampaignResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createModel: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -122,7 +138,11 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.CreateWhatsAppTemplate$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.CreateWhatsAppTemplate$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/whatsappCampaigns/template")();
@@ -141,9 +161,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "createWhatsAppTemplate" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -164,17 +183,29 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.CreateWhatsAppTemplateResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createModel: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.CreateWhatsAppTemplateResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createModel: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -193,7 +224,11 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteWhatsAppCampaignRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteWhatsAppCampaignRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -218,9 +253,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "deleteWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -243,17 +277,27 @@ export class WhatsAppCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteWhatsAppCampaignResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteWhatsAppCampaignResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -267,7 +311,11 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetWhatsAppCampaignRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetWhatsAppCampaignRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -292,9 +340,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "getWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -315,17 +362,29 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetWhatsAppCampaignResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getWhatsappCampaignOverview: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetWhatsAppCampaignResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getWhatsappCampaignOverview: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -344,7 +403,11 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetWhatsAppCampaignsRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetWhatsAppCampaignsRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/whatsappCampaigns")();
@@ -377,9 +440,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "getWhatsAppCampaigns" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -400,17 +462,29 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetWhatsAppCampaignsResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getWhatsappCampaigns: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetWhatsAppCampaignsResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getWhatsappCampaigns: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -444,9 +518,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "getWhatsAppConfig" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -466,17 +539,29 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetWhatsAppConfigResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getWhatsAppConfig: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetWhatsAppConfigResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getWhatsAppConfig: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -495,7 +580,11 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetWhatsAppTemplatesRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetWhatsAppTemplatesRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/whatsappCampaigns/template-list")();
@@ -528,9 +617,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "getWhatsAppTemplates" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -551,17 +639,29 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetWhatsAppTemplatesResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getWhatsappTemplates: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetWhatsAppTemplatesResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getWhatsappTemplates: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -580,8 +680,12 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ =
-            operations.SendWhatsAppTemplateApprovalRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) =>
+                operations.SendWhatsAppTemplateApprovalRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -608,9 +712,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "sendWhatsAppTemplateApproval" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -633,18 +736,29 @@ export class WhatsAppCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.SendWhatsAppTemplateApprovalResponse$.inboundSchema.parse(
-            responseFields$
+        return schemas$.parse(
+            undefined,
+            () =>
+                operations.SendWhatsAppTemplateApprovalResponse$.inboundSchema.parse(
+                    responseFields$
+                ),
+            "Response validation failed"
         );
     }
 
@@ -660,7 +774,11 @@ export class WhatsAppCampaigns extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UpdateWhatsAppCampaignRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.UpdateWhatsAppCampaignRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.updateWhatsAppCampaign, { explode: true });
 
         const pathParams$ = {
@@ -685,9 +803,8 @@ export class WhatsAppCampaigns extends ClientSDK {
 
         const context = { operationID: "updateWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "PUT",
                 path: path$,
@@ -710,16 +827,26 @@ export class WhatsAppCampaigns extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.UpdateWhatsAppCampaignResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.UpdateWhatsAppCampaignResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 }

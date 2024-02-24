@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
 import * as errors from "../models/errors";
@@ -53,7 +54,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.BlockDomain$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.BlockDomain$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/smtp/blockedDomains")();
@@ -72,9 +77,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "blockNewDomain" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -97,17 +101,27 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.BlockNewDomainResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.BlockNewDomainResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -122,7 +136,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.CreateSmtpTemplate$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.CreateSmtpTemplate$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/smtp/templates")();
@@ -141,9 +159,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "createSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -164,17 +181,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.CreateSmtpTemplateResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createModel: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.CreateSmtpTemplateResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createModel: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -196,7 +225,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteBlockedDomainRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteBlockedDomainRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -221,9 +254,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "deleteBlockedDomain" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -246,17 +278,27 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteBlockedDomainResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteBlockedDomainResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -274,7 +316,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.DeleteHardbounces$.outboundSchema.optional().parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.DeleteHardbounces$.outboundSchema.optional().parse(value$),
+            "Input validation failed"
+        );
         const body$ =
             payload$ === undefined ? null : enc$.encodeJSON("body", payload$, { explode: true });
 
@@ -294,9 +340,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "deleteHardbounces" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -319,17 +364,27 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteHardbouncesResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteHardbouncesResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -346,7 +401,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteScheduledEmailByIdRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteScheduledEmailByIdRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -371,9 +430,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "deleteScheduledEmailById" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -396,17 +454,27 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteScheduledEmailByIdResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteScheduledEmailByIdResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -420,7 +488,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteSmtpTemplateRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteSmtpTemplateRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -445,9 +517,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "deleteSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -470,17 +541,27 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteSmtpTemplateResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteSmtpTemplateResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -494,8 +575,12 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ =
-            operations.DeleteSmtpBlockedContactsEmailRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) =>
+                operations.DeleteSmtpBlockedContactsEmailRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -520,9 +605,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "delete_/smtp/blockedContacts/{email}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -545,18 +629,29 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteSmtpBlockedContactsEmailResponse$.inboundSchema.parse(
-            responseFields$
+        return schemas$.parse(
+            undefined,
+            () =>
+                operations.DeleteSmtpBlockedContactsEmailResponse$.inboundSchema.parse(
+                    responseFields$
+                ),
+            "Response validation failed"
         );
     }
 
@@ -571,7 +666,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteSmtpLogMessageIdRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteSmtpLogMessageIdRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -596,9 +695,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "delete_/smtp/log/{messageId}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -621,17 +719,27 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteSmtpLogMessageIdResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.DeleteSmtpLogMessageIdResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -648,7 +756,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetAggregatedSmtpReportRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetAggregatedSmtpReportRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/smtp/statistics/aggregatedReport")();
@@ -680,9 +792,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getAggregatedSmtpReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -703,17 +814,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetAggregatedSmtpReportResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getAggregatedReport: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetAggregatedSmtpReportResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getAggregatedReport: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -750,9 +873,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getBlockedDomains" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -772,10 +894,16 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetBlockedDomainsResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getBlockedDomains: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetBlockedDomainsResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getBlockedDomains: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else {
             const responseBody = await response.text();
@@ -797,7 +925,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetEmailEventReportRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetEmailEventReportRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/smtp/statistics/events")();
@@ -842,9 +974,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getEmailEventReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -865,17 +996,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetEmailEventReportResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getEmailEventReport: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetEmailEventReportResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getEmailEventReport: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -897,7 +1040,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetScheduledEmailByIdRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetScheduledEmailByIdRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -937,9 +1084,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getScheduledEmailById" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -960,17 +1106,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetScheduledEmailByIdResponse$.inboundSchema.parse({
-                ...responseFields$,
-                oneOf: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetScheduledEmailByIdResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        oneOf: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -989,7 +1147,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetSmtpReportRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetSmtpReportRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/smtp/statistics/reports")();
@@ -1024,9 +1186,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getSmtpReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -1047,17 +1208,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetSmtpReportResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getReports: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetSmtpReportResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getReports: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -1076,7 +1249,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetSmtpTemplateRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetSmtpTemplateRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -1101,9 +1278,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -1124,17 +1300,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetSmtpTemplateResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getSmtpTemplateOverview: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetSmtpTemplateResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getSmtpTemplateOverview: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -1153,7 +1341,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetSmtpTemplatesRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetSmtpTemplatesRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/smtp/templates")();
@@ -1182,9 +1374,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getSmtpTemplates" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -1205,17 +1396,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetSmtpTemplatesResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getSmtpTemplates: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetSmtpTemplatesResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getSmtpTemplates: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -1234,7 +1437,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetTransacBlockedContactsRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetTransacBlockedContactsRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/smtp/blockedContacts")();
@@ -1271,9 +1478,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getTransacBlockedContacts" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -1294,17 +1500,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetTransacBlockedContactsResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getTransacBlockedContacts: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetTransacBlockedContactsResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getTransacBlockedContacts: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -1323,7 +1541,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetTransacEmailContentRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetTransacEmailContentRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -1348,9 +1570,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getTransacEmailContent" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -1371,10 +1592,16 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetTransacEmailContentResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getTransacEmailContent: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetTransacEmailContentResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getTransacEmailContent: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else {
             const responseBody = await response.text();
@@ -1396,7 +1623,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetTransacEmailsListRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetTransacEmailsListRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/smtp/emails")();
@@ -1438,9 +1669,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "getTransacEmailsList" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -1461,17 +1691,29 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetTransacEmailsListResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getTransacEmailsList: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetTransacEmailsListResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getTransacEmailsList: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -1491,7 +1733,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.SendTestTemplateRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.SendTestTemplateRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.sendTestEmail, { explode: true });
 
         const pathParams$ = {
@@ -1518,9 +1764,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "sendTestTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -1543,24 +1788,40 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.PostSendFailed$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.PostSendFailed$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else if (this.matchResponse(response, 404, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.SendTestTemplateResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.SendTestTemplateResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -1575,7 +1836,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.SendSmtpEmail$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.SendSmtpEmail$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/smtp/email")();
@@ -1594,9 +1859,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "sendTransacEmail" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -1617,24 +1881,42 @@ export class TransactionalEmails extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.SendTransacEmailResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createSmtpEmail: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.SendTransacEmailResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createSmtpEmail: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 202, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.SendTransacEmailResponse$.inboundSchema.parse({
-                ...responseFields$,
-                scheduleSmtpEmail: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.SendTransacEmailResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        scheduleSmtpEmail: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -1654,7 +1936,11 @@ export class TransactionalEmails extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UpdateSmtpTemplateRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.UpdateSmtpTemplateRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.updateSmtpTemplate, { explode: true });
 
         const pathParams$ = {
@@ -1679,9 +1965,8 @@ export class TransactionalEmails extends ClientSDK {
 
         const context = { operationID: "updateSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "PUT",
                 path: path$,
@@ -1704,16 +1989,26 @@ export class TransactionalEmails extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.UpdateSmtpTemplateResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () => operations.UpdateSmtpTemplateResponse$.inboundSchema.parse(responseFields$),
+            "Response validation failed"
+        );
     }
 }

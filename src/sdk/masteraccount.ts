@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
 import * as errors from "../models/errors";
@@ -49,7 +50,11 @@ export class MasterAccount extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteCorporateSubAccountIdRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.DeleteCorporateSubAccountIdRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -71,9 +76,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "delete_/corporate/subAccount/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "DELETE",
                 path: path$,
@@ -96,17 +100,30 @@ export class MasterAccount extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 404], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.DeleteCorporateSubAccountIdResponse$.inboundSchema.parse(responseFields$);
+        return schemas$.parse(
+            undefined,
+            () =>
+                operations.DeleteCorporateSubAccountIdResponse$.inboundSchema.parse(
+                    responseFields$
+                ),
+            "Response validation failed"
+        );
     }
 
     /**
@@ -120,7 +137,11 @@ export class MasterAccount extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetAccountActivityRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetAccountActivityRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/organization/activities")();
@@ -152,9 +173,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "getAccountActivity" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -175,17 +195,29 @@ export class MasterAccount extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetAccountActivityResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getAccountActivity: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetAccountActivityResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getAccountActivity: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -222,9 +254,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "get_/corporate/masterAccount" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -244,17 +275,29 @@ export class MasterAccount extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetCorporateMasterAccountResponse$.inboundSchema.parse({
-                ...responseFields$,
-                masterDetailsResponse: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetCorporateMasterAccountResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        masterDetailsResponse: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -276,7 +319,11 @@ export class MasterAccount extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetCorporateSubAccountRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetCorporateSubAccountRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/corporate/subAccount")();
@@ -300,9 +347,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "get_/corporate/subAccount" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -323,17 +369,29 @@ export class MasterAccount extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetCorporateSubAccountResponse$.inboundSchema.parse({
-                ...responseFields$,
-                subAccountsResponse: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetCorporateSubAccountResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        subAccountsResponse: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -355,7 +413,11 @@ export class MasterAccount extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetCorporateSubAccountIdRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.GetCorporateSubAccountIdRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const pathParams$ = {
@@ -377,9 +439,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "get_/corporate/subAccount/{id}" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -400,17 +461,29 @@ export class MasterAccount extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetCorporateSubAccountIdResponse$.inboundSchema.parse({
-                ...responseFields$,
-                subAccountDetailsResponse: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetCorporateSubAccountIdResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        subAccountDetailsResponse: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -433,7 +506,11 @@ export class MasterAccount extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = components.CreateSubAccount$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => components.CreateSubAccount$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/corporate/subAccount")();
@@ -452,9 +529,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "post_/corporate/subAccount" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -475,17 +551,29 @@ export class MasterAccount extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.PostCorporateSubAccountResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createSubAccountResponse: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.PostCorporateSubAccountResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createSubAccountResponse: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -508,9 +596,14 @@ export class MasterAccount extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.PostCorporateSubAccountKeyRequestBody$.outboundSchema
-            .optional()
-            .parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) =>
+                operations.PostCorporateSubAccountKeyRequestBody$.outboundSchema
+                    .optional()
+                    .parse(value$),
+            "Input validation failed"
+        );
         const body$ =
             payload$ === undefined ? null : enc$.encodeJSON("body", payload$, { explode: true });
 
@@ -530,9 +623,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "post_/corporate/subAccount/key" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -553,17 +645,29 @@ export class MasterAccount extends ClientSDK {
 
         if (this.matchResponse(response, 201, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.PostCorporateSubAccountKeyResponse$.inboundSchema.parse({
-                ...responseFields$,
-                createApiKeyResponse: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.PostCorporateSubAccountKeyResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        createApiKeyResponse: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, 400, "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -586,9 +690,14 @@ export class MasterAccount extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.PostCorporateSubAccountSsoTokenRequestBody$.outboundSchema
-            .optional()
-            .parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) =>
+                operations.PostCorporateSubAccountSsoTokenRequestBody$.outboundSchema
+                    .optional()
+                    .parse(value$),
+            "Input validation failed"
+        );
         const body$ =
             payload$ === undefined ? null : enc$.encodeJSON("body", payload$, { explode: true });
 
@@ -608,9 +717,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "post_/corporate/subAccount/ssoToken" };
         const doOptions = { context, errorCodes: ["400", "403", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -631,17 +739,29 @@ export class MasterAccount extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.PostCorporateSubAccountSsoTokenResponse$.inboundSchema.parse({
-                ...responseFields$,
-                getSsoToken: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.PostCorporateSubAccountSsoTokenResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        getSsoToken: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 403], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -664,10 +784,14 @@ export class MasterAccount extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ =
-            operations.PutCorporateSubAccountIdApplicationsToggleRequest$.outboundSchema.parse(
-                input
-            );
+        const payload$ = schemas$.parse(
+            input,
+            (value$) =>
+                operations.PutCorporateSubAccountIdApplicationsToggleRequest$.outboundSchema.parse(
+                    value$
+                ),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.subAccountAppsToggleRequest, {
             explode: true,
         });
@@ -693,9 +817,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "put_/corporate/subAccount/{id}/applications/toggle" };
         const doOptions = { context, errorCodes: ["400", "403", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "PUT",
                 path: path$,
@@ -718,18 +841,29 @@ export class MasterAccount extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 403], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.PutCorporateSubAccountIdApplicationsToggleResponse$.inboundSchema.parse(
-            responseFields$
+        return schemas$.parse(
+            undefined,
+            () =>
+                operations.PutCorporateSubAccountIdApplicationsToggleResponse$.inboundSchema.parse(
+                    responseFields$
+                ),
+            "Response validation failed"
         );
     }
 
@@ -748,8 +882,12 @@ export class MasterAccount extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ =
-            operations.PutCorporateSubAccountIdPlanRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) =>
+                operations.PutCorporateSubAccountIdPlanRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.subAccountUpdatePlanRequest, {
             explode: true,
         });
@@ -773,9 +911,8 @@ export class MasterAccount extends ClientSDK {
 
         const context = { operationID: "put_/corporate/subAccount/{id}/plan" };
         const doOptions = { context, errorCodes: ["400", "403", "4XX", "5XX"] };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "PUT",
                 path: path$,
@@ -798,18 +935,29 @@ export class MasterAccount extends ClientSDK {
             // fallthrough
         } else if (this.matchResponse(response, [400, 403], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.ErrorModel$.inboundSchema.parse({
-                ...responseFields$,
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.ErrorModel$.inboundSchema.parse({
+                        ...responseFields$,
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
         }
 
-        return operations.PutCorporateSubAccountIdPlanResponse$.inboundSchema.parse(
-            responseFields$
+        return schemas$.parse(
+            undefined,
+            () =>
+                operations.PutCorporateSubAccountIdPlanResponse$.inboundSchema.parse(
+                    responseFields$
+                ),
+            "Response validation failed"
         );
     }
 }

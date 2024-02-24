@@ -6,3 +6,4 @@ export * from "./errormodel";
 export * from "./postsendfailed";
 export * from "./postsendsmstestfailed";
 export * from "./sdkerror";
+export * from "./sdkvalidationerror";
