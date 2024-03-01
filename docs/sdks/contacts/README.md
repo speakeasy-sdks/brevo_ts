@@ -702,8 +702,8 @@ async function run() {
   });
 
   const result = await sdk.contacts.getFolders({
-    limit: 846820,
-    offset: 320424,
+    limit: 10,
+    offset: 0,
   });
 
   // Handle the result
