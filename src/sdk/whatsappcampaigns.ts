@@ -70,9 +70,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createWhatsAppCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -157,9 +161,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createWhatsAppTemplate",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createWhatsAppTemplate" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -249,9 +257,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteWhatsAppCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -336,9 +348,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getWhatsAppCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -436,9 +452,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getWhatsAppCampaigns",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getWhatsAppCampaigns" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -514,9 +534,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getWhatsAppConfig",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getWhatsAppConfig" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -613,9 +637,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getWhatsAppTemplates",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getWhatsAppTemplates" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -708,9 +736,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendWhatsAppTemplateApproval",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendWhatsAppTemplateApproval" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -799,9 +831,13 @@ export class WhatsAppCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateWhatsAppCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateWhatsAppCampaign" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

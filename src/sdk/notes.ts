@@ -72,9 +72,13 @@ export class Notes extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/crm/notes/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/crm/notes/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -169,9 +173,13 @@ export class Notes extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/notes",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/notes" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -258,9 +266,13 @@ export class Notes extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/notes/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/notes/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -348,9 +360,13 @@ export class Notes extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "patch_/crm/notes/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "patch_/crm/notes/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "415", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -430,9 +446,13 @@ export class Notes extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/crm/notes",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/crm/notes" };
         const doOptions = { context, errorCodes: ["400", "415", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

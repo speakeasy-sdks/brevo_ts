@@ -73,9 +73,13 @@ export class ExternalFeeds extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createExternalFeed",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createExternalFeed" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -168,9 +172,13 @@ export class ExternalFeeds extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteExternalFeed",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteExternalFeed" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -271,9 +279,13 @@ export class ExternalFeeds extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getAllExternalFeeds",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getAllExternalFeeds" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -366,9 +378,13 @@ export class ExternalFeeds extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getExternalFeedByUUID",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getExternalFeedByUUID" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -462,9 +478,13 @@ export class ExternalFeeds extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateExternalFeed",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateExternalFeed" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

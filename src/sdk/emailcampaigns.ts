@@ -70,9 +70,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createEmailCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createEmailCampaign" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -162,9 +166,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteEmailCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteEmailCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -252,9 +260,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "emailExportRecipients",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "emailExportRecipients" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -349,9 +361,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getAbTestCampaignResult",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getAbTestCampaignResult" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -448,9 +464,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getEmailCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getEmailCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -558,9 +578,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getEmailCampaigns",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getEmailCampaigns" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -655,9 +679,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSharedTemplateUrl",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSharedTemplateUrl" };
         const doOptions = { context, errorCodes: ["400", "404", "405", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -749,9 +777,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendEmailCampaignNow",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendEmailCampaignNow" };
         const doOptions = { context, errorCodes: ["400", "402", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -842,9 +874,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendReport" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -932,9 +968,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendTestEmail",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendTestEmail" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1020,9 +1060,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateCampaignStatus",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateCampaignStatus" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1108,9 +1152,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateEmailCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateEmailCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1190,9 +1238,13 @@ export class EmailCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "uploadImageToGallery",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "uploadImageToGallery" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

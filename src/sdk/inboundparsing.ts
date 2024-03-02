@@ -87,9 +87,13 @@ export class InboundParsing extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getInboundEmailAttachment",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getInboundEmailAttachment" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -192,9 +196,13 @@ export class InboundParsing extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getInboundEmailEvents",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getInboundEmailEvents" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -287,9 +295,13 @@ export class InboundParsing extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getInboundEmailEventsByUuid",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getInboundEmailEventsByUuid" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

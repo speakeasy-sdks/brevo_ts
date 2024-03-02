@@ -71,9 +71,13 @@ export class Senders extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createSender",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createSender" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -163,9 +167,13 @@ export class Senders extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteSender",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteSender" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -234,9 +242,13 @@ export class Senders extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getIps",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getIps" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -312,9 +324,13 @@ export class Senders extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getIpsFromSender",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getIpsFromSender" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -403,9 +419,13 @@ export class Senders extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSenders",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSenders" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -496,9 +516,13 @@ export class Senders extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateSender",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateSender" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -584,9 +608,13 @@ export class Senders extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "validateSenderByOTP",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "validateSenderByOTP" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

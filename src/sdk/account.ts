@@ -58,9 +58,13 @@ export class Account extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getAccount",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getAccount" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -143,9 +147,13 @@ export class Account extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getAccountActivity",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getAccountActivity" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

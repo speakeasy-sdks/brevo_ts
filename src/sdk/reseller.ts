@@ -78,9 +78,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "addCredits",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "addCredits" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -173,9 +177,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "associateIpToChild",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "associateIpToChild" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -263,9 +271,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createChildDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createChildDomain" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -346,9 +358,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createResellerChild",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createResellerChild" };
         const doOptions = { context, errorCodes: ["400", "403", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -444,9 +460,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteChildDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteChildDomain" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -533,9 +553,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteResellerChild",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteResellerChild" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -623,9 +647,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "dissociateIpFromChild",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "dissociateIpFromChild" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -713,9 +741,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getChildAccountCreationStatus",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getChildAccountCreationStatus" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -807,9 +839,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getChildDomains",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getChildDomains" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -901,9 +937,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getChildInfo",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getChildInfo" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -992,9 +1032,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getResellerChilds",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getResellerChilds" };
         const doOptions = { context, errorCodes: ["403", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1089,9 +1133,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSsoToken",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSsoToken" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1184,9 +1232,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "removeCredits",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "removeCredits" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1279,9 +1331,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateChildAccountStatus",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateChildAccountStatus" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1373,9 +1429,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateChildDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateChildDomain" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1463,9 +1523,13 @@ export class Reseller extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateResellerChild",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateResellerChild" };
         const doOptions = { context, errorCodes: ["400", "403", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

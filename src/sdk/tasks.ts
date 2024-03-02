@@ -71,9 +71,13 @@ export class Tasks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/crm/tasks/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/crm/tasks/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -192,9 +196,13 @@ export class Tasks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/tasks",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/tasks" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -281,9 +289,13 @@ export class Tasks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/tasks/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/tasks/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -357,9 +369,13 @@ export class Tasks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/tasktypes",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/tasktypes" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -433,9 +449,13 @@ export class Tasks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "patch_/crm/tasks/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "patch_/crm/tasks/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -515,9 +535,13 @@ export class Tasks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/crm/tasks",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/crm/tasks" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

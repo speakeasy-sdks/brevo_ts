@@ -72,9 +72,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/corporate/subAccount/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/corporate/subAccount/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -169,9 +173,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getAccountActivity",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getAccountActivity" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -250,9 +258,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/corporate/masterAccount",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/corporate/masterAccount" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -343,9 +355,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/corporate/subAccount",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/corporate/subAccount" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -435,9 +451,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/corporate/subAccount/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/corporate/subAccount/{id}" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -525,9 +545,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/corporate/subAccount",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/corporate/subAccount" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -619,9 +643,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/corporate/subAccount/key",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/corporate/subAccount/key" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -713,9 +741,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/corporate/subAccount/ssoToken",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/corporate/subAccount/ssoToken" };
         const doOptions = { context, errorCodes: ["400", "403", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -813,9 +845,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "put_/corporate/subAccount/{id}/applications/toggle",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "put_/corporate/subAccount/{id}/applications/toggle" };
         const doOptions = { context, errorCodes: ["400", "403", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -907,9 +943,13 @@ export class MasterAccount extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "put_/corporate/subAccount/{id}/plan",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "put_/corporate/subAccount/{id}/plan" };
         const doOptions = { context, errorCodes: ["400", "403", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

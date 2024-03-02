@@ -90,9 +90,13 @@ export class TransactionalSMS extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSmsEvents",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSmsEvents" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -190,9 +194,13 @@ export class TransactionalSMS extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getTransacAggregatedSmsReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getTransacAggregatedSmsReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -290,9 +298,13 @@ export class TransactionalSMS extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getTransacSmsReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getTransacSmsReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -377,9 +389,13 @@ export class TransactionalSMS extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendTransacSms",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendTransacSms" };
         const doOptions = { context, errorCodes: ["400", "402", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

@@ -71,9 +71,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/crm/deals/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/crm/deals/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -144,9 +148,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/attributes/deals",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/attributes/deals" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -236,9 +244,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/deals",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/deals" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -325,9 +337,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/deals/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/deals/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -408,9 +424,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/pipeline/details",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/pipeline/details" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -472,9 +492,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/pipeline/details/all",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/pipeline/details/all" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -564,9 +588,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/pipeline/details/{pipelineID}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/pipeline/details/{pipelineID}" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -654,9 +682,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "patch_/crm/deals/link-unlink/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "patch_/crm/deals/link-unlink/{id}" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -740,9 +772,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "patch_/crm/deals/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "patch_/crm/deals/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -822,9 +858,13 @@ export class Deals extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/crm/deals",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/crm/deals" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

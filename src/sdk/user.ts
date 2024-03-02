@@ -60,9 +60,13 @@ export class User extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getInvitedUsersList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getInvitedUsersList" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -153,9 +157,13 @@ export class User extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getUserPermission",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getUserPermission" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

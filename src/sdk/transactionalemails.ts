@@ -73,9 +73,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "blockNewDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "blockNewDomain" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -155,9 +159,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createSmtpTemplate",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -250,9 +258,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteBlockedDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteBlockedDomain" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -336,9 +348,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteHardbounces",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteHardbounces" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -426,9 +442,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteScheduledEmailById",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteScheduledEmailById" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -513,9 +533,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteSmtpTemplate",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -601,9 +625,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/smtp/blockedContacts/{email}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/smtp/blockedContacts/{email}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -691,9 +719,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/smtp/log/{messageId}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/smtp/log/{messageId}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -788,9 +820,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getAggregatedSmtpReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getAggregatedSmtpReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -869,9 +905,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getBlockedDomains",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getBlockedDomains" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -970,9 +1010,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getEmailEventReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getEmailEventReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1080,9 +1124,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getScheduledEmailById",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getScheduledEmailById" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1182,9 +1230,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSmtpReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSmtpReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1274,9 +1326,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSmtpTemplate",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1370,9 +1426,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSmtpTemplates",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSmtpTemplates" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1474,9 +1534,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getTransacBlockedContacts",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getTransacBlockedContacts" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1566,9 +1630,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getTransacEmailContent",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getTransacEmailContent" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1665,9 +1733,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getTransacEmailsList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getTransacEmailsList" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1760,9 +1832,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendTestTemplate",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendTestTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1855,9 +1931,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendTransacEmail",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendTransacEmail" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1961,9 +2041,13 @@ export class TransactionalEmails extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateSmtpTemplate",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateSmtpTemplate" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

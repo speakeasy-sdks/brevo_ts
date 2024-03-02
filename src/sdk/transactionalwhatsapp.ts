@@ -91,9 +91,13 @@ export class TransactionalWhatsApp extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getWhatsappEventReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getWhatsappEventReport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -181,9 +185,13 @@ export class TransactionalWhatsApp extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendWhatsappMessage",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendWhatsappMessage" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

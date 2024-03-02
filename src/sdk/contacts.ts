@@ -78,9 +78,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "addContactToList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "addContactToList" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -177,9 +181,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createAttribute",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createAttribute" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -259,9 +267,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createContact",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createContact" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -354,9 +366,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createDoiContact",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createDoiContact" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -436,9 +452,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createFolder",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createFolder" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -523,9 +543,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createList" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -621,9 +645,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteAttribute",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteAttribute" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -708,9 +736,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteFolder",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteFolder" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -795,9 +827,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteList" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -866,9 +902,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getAttributes",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getAttributes" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -952,9 +992,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getContacts",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getContacts" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1054,9 +1098,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getContactsFromList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getContactsFromList" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1146,9 +1194,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getFolder",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getFolder" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1244,9 +1296,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getFolderLists",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getFolderLists" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1336,9 +1392,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getFolders",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getFolders" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1428,9 +1488,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getList" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1520,9 +1584,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getLists",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getLists" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1612,9 +1680,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSegments",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSegments" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1702,9 +1774,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "importContacts",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "importContacts" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1797,9 +1873,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "removeContactFromList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "removeContactFromList" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1887,9 +1967,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "requestContactExport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "requestContactExport" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -1986,9 +2070,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateAttribute",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateAttribute" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -2068,9 +2156,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateBatchContacts",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateBatchContacts" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -2156,9 +2248,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateFolder",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateFolder" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -2244,9 +2340,13 @@ export class Contacts extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateList",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateList" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

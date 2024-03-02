@@ -77,9 +77,13 @@ export class Domains extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "authenticateDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "authenticateDomain" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -165,9 +169,13 @@ export class Domains extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createDomain" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -257,9 +265,13 @@ export class Domains extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteDomain",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteDomain" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -344,9 +356,13 @@ export class Domains extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getDomainConfiguration",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getDomainConfiguration" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -420,9 +436,13 @@ export class Domains extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getDomains",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getDomains" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

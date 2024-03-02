@@ -71,9 +71,13 @@ export class Companies extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/companies/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/companies/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -171,9 +175,13 @@ export class Companies extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/companies",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/companies" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -249,9 +257,13 @@ export class Companies extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/companies/attributes",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/companies/attributes" };
         const doOptions = { context, errorCodes: ["4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -324,9 +336,13 @@ export class Companies extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/companies/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/companies/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -414,9 +430,13 @@ export class Companies extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "patch_/companies/link-unlink/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "patch_/companies/link-unlink/{id}" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -500,9 +520,13 @@ export class Companies extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "patch_/companies/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "patch_/companies/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -587,9 +611,13 @@ export class Companies extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/companies",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/companies" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

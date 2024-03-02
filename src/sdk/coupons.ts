@@ -69,9 +69,13 @@ export class Coupons extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createCouponCollection",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createCouponCollection" };
         const doOptions = { context, errorCodes: ["400", "401", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -156,9 +160,13 @@ export class Coupons extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createCoupons",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createCoupons" };
         const doOptions = { context, errorCodes: ["400", "401", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -240,9 +248,13 @@ export class Coupons extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getCouponCollection",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getCouponCollection" };
         const doOptions = { context, errorCodes: ["400", "401", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -332,9 +344,13 @@ export class Coupons extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getCouponCollections",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getCouponCollections" };
         const doOptions = { context, errorCodes: ["400", "401", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -422,9 +438,13 @@ export class Coupons extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateCouponCollection",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateCouponCollection" };
         const doOptions = { context, errorCodes: ["400", "401", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

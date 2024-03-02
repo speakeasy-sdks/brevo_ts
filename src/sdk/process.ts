@@ -74,9 +74,13 @@ export class Process extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getProcess",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getProcess" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -166,9 +170,13 @@ export class Process extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getProcesses",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getProcesses" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

@@ -73,9 +73,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createBatchOrder",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createBatchOrder" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -163,9 +167,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createOrder",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createOrder" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -245,9 +253,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createUpdateBatchCategory",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createUpdateBatchCategory" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -332,9 +344,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createUpdateBatchProducts",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createUpdateBatchProducts" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -419,9 +435,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createUpdateCategory",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createUpdateCategory" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -514,9 +534,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createUpdateProduct",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createUpdateProduct" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -616,9 +640,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getCategories",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getCategories" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -705,9 +733,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getCategoryInfo",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getCategoryInfo" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -794,9 +826,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getProductInfo",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getProductInfo" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -916,9 +952,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getProducts",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getProducts" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -997,9 +1037,13 @@ export class Ecommerce extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/ecommerce/activate",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/ecommerce/activate" };
         const doOptions = { context, errorCodes: ["401", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

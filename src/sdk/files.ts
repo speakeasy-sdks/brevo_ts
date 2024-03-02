@@ -72,9 +72,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/crm/files/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/crm/files/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -169,9 +173,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/files",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/files" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -258,9 +266,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/files/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/files/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -347,9 +359,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/crm/files/{id}/data",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/crm/files/{id}/data" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -452,9 +468,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/crm/files",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/crm/files" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

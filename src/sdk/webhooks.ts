@@ -70,9 +70,13 @@ export class Webhooks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createWebhook",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createWebhook" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -162,9 +166,13 @@ export class Webhooks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteWebhook",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteWebhook" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -247,9 +255,13 @@ export class Webhooks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "exportWebhooksHistory",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "exportWebhooksHistory" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -339,9 +351,13 @@ export class Webhooks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getWebhook",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getWebhook" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -430,9 +446,13 @@ export class Webhooks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getWebhooks",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getWebhooks" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -523,9 +543,13 @@ export class Webhooks extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateWebhook",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateWebhook" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

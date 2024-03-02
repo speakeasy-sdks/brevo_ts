@@ -70,9 +70,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createSmsCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -162,9 +166,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteSmsCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -249,9 +257,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSmsCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -350,9 +362,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getSmsCampaigns",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getSmsCampaigns" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -450,9 +466,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "requestSmsRecipientExport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "requestSmsRecipientExport" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -542,9 +562,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendSmsCampaignNow",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendSmsCampaignNow" };
         const doOptions = { context, errorCodes: ["400", "402", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -635,9 +659,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendSmsReport",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendSmsReport" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -723,9 +751,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "sendTestSms",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "sendTestSms" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -824,9 +856,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateSmsCampaign",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateSmsCampaign" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -912,9 +948,13 @@ export class SMSCampaigns extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateSmsCampaignStatus",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateSmsCampaignStatus" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {

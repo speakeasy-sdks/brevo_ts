@@ -4,23 +4,23 @@ management:
   docChecksum: fd6551c04044961cce38d49d9c1dd06d
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.275.4
-  releaseVersion: 0.4.1
-  configChecksum: e97430a51410ba05c02217e20bbd479a
+  generationVersion: 2.277.0
+  releaseVersion: 0.4.2
+  configChecksum: 715d992a165bfdf11d0da2f4f3e2efde
   repoURL: https://github.com/speakeasy-sdks/brevo_ts.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/brevo_ts
 features:
   typescript:
     acceptHeaders: 2.81.1
-    constsAndDefaults: 0.1.4
+    constsAndDefaults: 0.1.5
     core: 3.6.1
     deprecations: 2.81.1
     downloadStreams: 0.1.1
     globalSecurity: 2.82.4
     globalServerURLs: 2.82.3
     responseFormat: 0.1.0
-    unions: 2.85.2
+    unions: 2.85.3
 generatedFiles:
   - src/sdk/account.ts
   - src/sdk/ecommerce.ts

@@ -75,9 +75,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/conversations/messages/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/conversations/messages/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -163,9 +167,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "delete_/conversations/pushedMessages/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "delete_/conversations/pushedMessages/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -250,9 +258,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/conversations/messages/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/conversations/messages/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -340,9 +352,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "get_/conversations/pushedMessages/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "get_/conversations/pushedMessages/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -435,9 +451,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/conversations/agentOnlinePing",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/conversations/agentOnlinePing" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -521,9 +541,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/conversations/messages",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/conversations/messages" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -612,9 +636,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "post_/conversations/pushedMessages",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "post_/conversations/pushedMessages" };
         const doOptions = { context, errorCodes: ["400", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -705,9 +733,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "put_/conversations/messages/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "put_/conversations/messages/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
@@ -796,9 +828,13 @@ export class Conversations extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "put_/conversations/pushedMessages/{id}",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "put_/conversations/pushedMessages/{id}" };
         const doOptions = { context, errorCodes: ["400", "404", "4XX", "5XX"] };
         const request = this.createRequest$(
             {
