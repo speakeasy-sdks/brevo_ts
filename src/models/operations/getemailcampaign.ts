@@ -3,7 +3,7 @@
  */
 
 import * as components from "../../models/components";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response.

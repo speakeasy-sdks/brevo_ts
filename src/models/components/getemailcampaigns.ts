@@ -5,7 +5,7 @@
 import { GetCampaignStats, GetCampaignStats$ } from "./getcampaignstats";
 import { GetDeviceBrowserStats, GetDeviceBrowserStats$ } from "./getdevicebrowserstats";
 import { GetStatsByDevice, GetStatsByDevice$ } from "./getstatsbydevice";
-import { z } from "zod";
+import * as z from "zod";
 
 export type GetEmailCampaignsRecipients = {
     exclusionLists: Array<number>;

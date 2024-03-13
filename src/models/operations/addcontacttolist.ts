@@ -3,7 +3,7 @@
  */
 
 import * as components from "../../models/components";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Emails addresses OR IDs of the contacts
@@ -51,13 +51,11 @@ export namespace AddContactToListRequestBody$ {
     export type Outbound =
         | components.AddContactToListByEmails$.Outbound
         | components.AddContactToListByIDs$.Outbound;
-
     export const inboundSchema: z.ZodType<AddContactToListRequestBody, z.ZodTypeDef, Inbound> =
         z.union([
             components.AddContactToListByEmails$.inboundSchema,
             components.AddContactToListByIDs$.inboundSchema,
         ]);
-
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddContactToListRequestBody> =
         z.union([
             components.AddContactToListByEmails$.outboundSchema,

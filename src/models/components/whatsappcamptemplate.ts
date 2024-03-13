@@ -4,7 +4,7 @@
 
 import { ComponentItems, ComponentItems$ } from "./componentitems";
 import { VariablesItems, VariablesItems$ } from "./variablesitems";
-import { z } from "zod";
+import * as z from "zod";
 
 export type WhatsappCampTemplate = {
     /**

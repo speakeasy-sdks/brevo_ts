@@ -3,7 +3,7 @@
  */
 
 import { Order, Order$ } from "./order";
-import { z } from "zod";
+import * as z from "zod";
 
 export type OrderBatch = {
     /**

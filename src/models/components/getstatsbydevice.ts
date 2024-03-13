@@ -3,7 +3,7 @@
  */
 
 import { GetDeviceBrowserStats, GetDeviceBrowserStats$ } from "./getdevicebrowserstats";
-import { z } from "zod";
+import * as z from "zod";
 
 export type GetStatsByDevice = {
     /**

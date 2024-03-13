@@ -4,7 +4,7 @@
 
 import * as components from "../../models/components";
 import { RFCDate } from "../../types";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Filter the records by `authType` of the feed.

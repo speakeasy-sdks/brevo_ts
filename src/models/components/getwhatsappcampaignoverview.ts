@@ -4,7 +4,7 @@
 
 import { WhatsappCampStats, WhatsappCampStats$ } from "./whatsappcampstats";
 import { WhatsappCampTemplate, WhatsappCampTemplate$ } from "./whatsappcamptemplate";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Status of the WhatsApp Campaign

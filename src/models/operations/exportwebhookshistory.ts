@@ -3,7 +3,7 @@
  */
 
 import * as components from "../../models/components";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Values to submit for webhooks history
@@ -34,10 +34,8 @@ export namespace ExportWebhooksHistoryRequestBody$ {
     export type Inbound = components.ExportWebhooksHistory$.Inbound;
 
     export type Outbound = components.ExportWebhooksHistory$.Outbound;
-
     export const inboundSchema: z.ZodType<ExportWebhooksHistoryRequestBody, z.ZodTypeDef, Inbound> =
         z.lazy(() => components.ExportWebhooksHistory$.inboundSchema);
-
     export const outboundSchema: z.ZodType<
         Outbound,
         z.ZodTypeDef,

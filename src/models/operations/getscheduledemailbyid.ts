@@ -4,7 +4,7 @@
 
 import * as components from "../../models/components";
 import { RFCDate } from "../../types";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed. Not valid when identifier is `messageId`.
@@ -185,7 +185,6 @@ export namespace GetScheduledEmailByIdResponseBody$ {
     export type Outbound =
         | components.GetScheduledEmailByBatchId$.Outbound
         | components.GetScheduledEmailByMessageId$.Outbound;
-
     export const inboundSchema: z.ZodType<
         GetScheduledEmailByIdResponseBody,
         z.ZodTypeDef,
@@ -194,7 +193,6 @@ export namespace GetScheduledEmailByIdResponseBody$ {
         components.GetScheduledEmailByBatchId$.inboundSchema,
         components.GetScheduledEmailByMessageId$.inboundSchema,
     ]);
-
     export const outboundSchema: z.ZodType<
         Outbound,
         z.ZodTypeDef,

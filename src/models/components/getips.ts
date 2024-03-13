@@ -3,7 +3,7 @@
  */
 
 import { GetIp, GetIp$ } from "./getip";
-import { z } from "zod";
+import * as z from "zod";
 
 export type GetIps = {
     /**

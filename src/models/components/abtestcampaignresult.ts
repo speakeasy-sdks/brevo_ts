@@ -4,7 +4,7 @@
 
 import { AbTestVersionClicks, AbTestVersionClicks$ } from "./abtestversionclicks";
 import { AbTestVersionStats, AbTestVersionStats$ } from "./abtestversionstats";
-import { z } from "zod";
+import * as z from "zod";
 
 export type ClickedLinks = {
     /**

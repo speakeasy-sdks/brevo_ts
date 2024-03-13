@@ -5,7 +5,7 @@
 import * as b64$ from "../../lib/base64";
 import * as components from "../../models/components";
 import { blobLikeSchema } from "../../types";
-import { z } from "zod";
+import * as z from "zod";
 
 export type FileT = {
     content: Uint8Array | string;

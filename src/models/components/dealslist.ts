@@ -3,7 +3,7 @@
  */
 
 import { Deal, Deal$ } from "./deal";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * List of Deals

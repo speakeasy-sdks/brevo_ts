@@ -3,7 +3,7 @@
  */
 
 import * as components from "../../models/components";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Emails adresses OR IDs of the contacts OR 'all' true
@@ -57,14 +57,12 @@ export namespace RemoveContactFromListRequestBody$ {
         | components.RemoveContactFromListByEmails$.Outbound
         | components.RemoveContactFromListByIDs$.Outbound
         | components.RemoveContactFromListByAll$.Outbound;
-
     export const inboundSchema: z.ZodType<RemoveContactFromListRequestBody, z.ZodTypeDef, Inbound> =
         z.union([
             components.RemoveContactFromListByEmails$.inboundSchema,
             components.RemoveContactFromListByIDs$.inboundSchema,
             components.RemoveContactFromListByAll$.inboundSchema,
         ]);
-
     export const outboundSchema: z.ZodType<
         Outbound,
         z.ZodTypeDef,

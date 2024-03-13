@@ -3,7 +3,7 @@
  */
 
 import * as components from "../../models/components";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * Values to send WhatsApp message
@@ -50,13 +50,11 @@ export namespace SendWhatsappMessageRequestBody$ {
     export type Outbound =
         | components.SendWhatsappMessageTemplate$.Outbound
         | components.SendWhatsappMessageText$.Outbound;
-
     export const inboundSchema: z.ZodType<SendWhatsappMessageRequestBody, z.ZodTypeDef, Inbound> =
         z.union([
             components.SendWhatsappMessageTemplate$.inboundSchema,
             components.SendWhatsappMessageText$.inboundSchema,
         ]);
-
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SendWhatsappMessageRequestBody> =
         z.union([
             components.SendWhatsappMessageTemplate$.outboundSchema,

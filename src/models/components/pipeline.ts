@@ -3,7 +3,7 @@
  */
 
 import { PipelineStage, PipelineStage$ } from "./pipelinestage";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * List of stages

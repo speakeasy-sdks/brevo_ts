@@ -3,7 +3,7 @@
  */
 
 import { Company, Company$ } from "./company";
-import { z } from "zod";
+import * as z from "zod";
 
 /**
  * List of companies
