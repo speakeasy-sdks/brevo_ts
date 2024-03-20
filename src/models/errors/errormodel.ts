@@ -88,6 +88,7 @@ export namespace ErrorModel$ {
                 message: v.message,
             });
         });
+
     export type Outbound = {
         code: Code;
         message: string;

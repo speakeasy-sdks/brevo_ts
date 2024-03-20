@@ -3,8 +3,8 @@
  */
 
 import * as b64$ from "../../lib/base64";
-import * as components from "../../models/components";
 import { blobLikeSchema } from "../../types";
+import * as components from "../components";
 import * as z from "zod";
 
 export type FileT = {

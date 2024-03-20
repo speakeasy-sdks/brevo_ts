@@ -73,6 +73,7 @@ export namespace PostSendSmsTestFailed$ {
                 ...(v.withoutListSms === undefined ? null : { withoutListSms: v.withoutListSms }),
             });
         });
+
     export type Outbound = {
         code: string;
         message: string;

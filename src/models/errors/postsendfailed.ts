@@ -93,6 +93,7 @@ export namespace PostSendFailed$ {
                     : { withoutListEmails: v.withoutListEmails }),
             });
         });
+
     export type Outbound = {
         blackListedEmails?: Array<string> | undefined;
         code: string;
